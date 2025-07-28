@@ -803,6 +803,77 @@ function initializeApp() {
     document.querySelector('.nav-link[href="#home"]')?.classList.add('active');
 }
 
+// Geolocation functionality for location picker
+function getCurrentLocation(button) {
+    const locationInput = button.parentElement.querySelector('input[name="location"]');
+    const originalText = button.textContent;
+    
+    // Show loading state
+    button.textContent = '🔄 Getting Location...';
+    button.disabled = true;
+    
+    if (!navigator.geolocation) {
+        showNotification('Geolocation is not supported by this browser.', 'error');
+        button.textContent = originalText;
+        button.disabled = false;
+        return;
+    }
+    
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            
+            // Create Google Maps link
+            const googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+            
+            // Set the location in the input
+            locationInput.value = googleMapsLink;
+            
+            // Show success notification
+            showNotification('Location captured successfully!', 'success');
+            
+            // Reset button
+            button.textContent = '✅ Location Set';
+            button.disabled = false;
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        },
+        function(error) {
+            let errorMessage = 'Unable to get your location. ';
+            
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    errorMessage += 'Please allow location access and try again.';
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage += 'Location information is unavailable.';
+                    break;
+                case error.TIMEOUT:
+                    errorMessage += 'Location request timed out.';
+                    break;
+                default:
+                    errorMessage += 'An unknown error occurred.';
+                    break;
+            }
+            
+            showNotification(errorMessage, 'error');
+            
+            // Reset button
+            button.textContent = originalText;
+            button.disabled = false;
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 60000
+        }
+    );
+}
+
 function addNotificationStyles() {
     if (!document.querySelector('#notification-styles')) {
         const style = document.createElement('style');
