@@ -428,6 +428,283 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// FAQ Functionality
+function initializeFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all FAQ items
+            faqItems.forEach(faq => faq.classList.remove('active'));
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
+
+// Modal Functionality
+function initializeModals() {
+    const modal = document.getElementById('authModal');
+    const closeBtn = document.querySelector('.close');
+    const loginLinks = document.querySelectorAll('a[href="#login"]');
+    const registerLinks = document.querySelectorAll('a[href="#register"]');
+    
+    // Open modal for login/register links
+    loginLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'block';
+            showTab('login');
+        });
+    });
+    
+    registerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'block';
+            showTab('register');
+        });
+    });
+    
+    // Close modal
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
+// Tab Functionality
+function showTab(tabName) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    
+    // Hide all tabs
+    tabs.forEach(tab => tab.classList.remove('active'));
+    tabBtns.forEach(btn => btn.classList.remove('active'));
+    
+    // Show selected tab
+    document.getElementById(tabName).classList.add('active');
+    document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
+}
+
+// Contact Form Functionality
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            showNotification('Thank you for your message! We will get back to you soon.', 'success');
+            
+            // Reset form
+            contactForm.reset();
+        });
+    }
+}
+
+// Product Add to Cart Functionality
+function initializeProducts() {
+    const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+    
+    addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const productCard = e.target.closest('.product-card');
+            const productName = productCard.querySelector('h3').textContent;
+            
+            // Add loading state
+            btn.textContent = 'Adding...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.textContent = 'Added to Cart';
+                btn.style.background = '#4caf50';
+                
+                showNotification(`${productName} added to cart!`, 'success');
+                
+                setTimeout(() => {
+                    btn.textContent = 'Add to Cart';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+    });
+}
+
+// Refer & Earn Functionality
+function initializeReferral() {
+    const shareBtn = document.querySelector('.share-btn');
+    
+    if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+            const referralCode = 'GLOW2025';
+            const shareText = `Join GlowOnCall for premium beauty services at home! Use my referral code ${referralCode} and we both get ₹200 credit. Download now: https://glowoncall.com`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'GlowOnCall - Beauty at Your Doorstep',
+                    text: shareText,
+                    url: 'https://glowoncall.com'
+                });
+            } else {
+                // Fallback to copying to clipboard
+                navigator.clipboard.writeText(shareText).then(() => {
+                    showNotification('Referral code copied to clipboard!', 'success');
+                });
+            }
+        });
+    }
+}
+
+// Enhanced Notification System
+function showNotification(message, type = 'success') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    
+    const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+    const bgColor = type === 'success' ? 'linear-gradient(135deg, #4caf50, #45a049)' : 'linear-gradient(135deg, #f44336, #d32f2f)';
+    
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="${icon}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${bgColor};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        animation: slideIn 0.3s ease-out;
+        max-width: 350px;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease-in forwards';
+        setTimeout(() => notification.remove(), 300);
+    }, 4000);
+}
+
+// Authentication Forms
+function initializeAuthForms() {
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const phone = e.target.querySelector('input[type="tel"]').value;
+            
+            // Simulate OTP sending
+            showNotification(`OTP sent to ${phone}. Please check your messages.`, 'success');
+            
+            // In a real app, you would send OTP here
+            setTimeout(() => {
+                document.getElementById('authModal').style.display = 'none';
+                showNotification('Welcome back! You are now logged in.', 'success');
+            }, 2000);
+        });
+    }
+    
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate registration
+            showNotification(`Account created successfully! Welcome ${data.name}!`, 'success');
+            
+            setTimeout(() => {
+                document.getElementById('authModal').style.display = 'none';
+            }, 1500);
+        });
+    }
+}
+
+// Enhanced App Initialization
+function initializeApp() {
+    // Set minimum date to today
+    setMinDate();
+    
+    // Add event listeners
+    addEventListeners();
+    
+    // Initialize service selection
+    initializeServiceSelection();
+    
+    // Initialize smooth scrolling
+    initializeSmoothScrolling();
+    
+    // Initialize new features
+    initializeFAQ();
+    initializeModals();
+    initializeContactForm();
+    initializeProducts();
+    initializeReferral();
+    initializeAuthForms();
+    
+    // Add notification styles if not present
+    addNotificationStyles();
+}
+
+function addNotificationStyles() {
+    if (!document.querySelector('#notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Make showTab globally accessible
+window.showTab = showTab;
+
 // Initialize app when DOM is loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApp);

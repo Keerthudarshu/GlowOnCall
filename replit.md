@@ -1,8 +1,8 @@
-# GlowOnCall - Beauty Service Platform
+# GlowOnCall - Comprehensive Beauty Service Platform
 
 ## Overview
 
-GlowOnCall is a beauty service platform that connects customers with professional beauty service providers for at-home treatments. The application allows users to browse services, book appointments, and schedule beauty treatments to be performed at their location. This is currently a frontend-only application built with vanilla HTML, CSS, and JavaScript.
+GlowOnCall is a comprehensive salon-at-home booking platform inspired by GetLook.in that connects customers with professional beauticians and stylists for premium beauty services delivered at home. The platform operates across major Indian cities (Bangalore, Mumbai, Pune, Hyderabad, Delhi) and features a complete ecosystem including service booking, product sales, customer reviews, referral programs, and user authentication. This is currently a feature-rich frontend application built with vanilla HTML, CSS, and JavaScript that demonstrates a full commercial beauty platform.
 
 ## User Preferences
 
@@ -22,23 +22,42 @@ Preferred communication style: Simple, everyday language.
 
 ## Key Components
 
-### 1. User Interface Components
-- **Header**: Fixed navigation with logo and service links
-- **Hero Section**: Call-to-action area promoting home beauty services
-- **Services Grid**: Visual showcase of available beauty services (haircuts, etc.)
-- **Booking Form**: Customer information and appointment scheduling interface
+### 1. Core Platform Pages
+- **Home Page**: Hero section with call-to-action and platform overview
+- **Services Section**: Comprehensive showcase of 6+ beauty services with ratings
+- **About Us**: Company information, features, and statistics
+- **Reviews**: Customer testimonials with rating breakdown and authenticity
+- **Products**: E-commerce section for beauty products with cart functionality
+- **FAQ**: Interactive accordion with common questions and answers
+- **Contact**: Multi-channel contact information and query form
+- **Refer & Earn**: Referral program with sharing functionality
+- **Login/Register**: Authentication modals with OTP integration
 
-### 2. JavaScript Modules
-- **App Initialization**: Sets up minimum dates, event listeners, and smooth scrolling
-- **Form Handling**: Manages booking form submission and validation
-- **Service Selection**: Handles service card interactions and dropdown management
-- **Real-time Validation**: Provides immediate feedback on form inputs
+### 2. Service Categories (GetLook-style)
+- **Hair Services**: Cuts, styling, hair spa treatments
+- **Skin Treatments**: Facials, clean-ups, bleaching services
+- **Nail Care**: Professional manicure and pedicure services
+- **Grooming**: Waxing and threading services
+- **Massage Treatments**: Therapeutic and relaxation massage
+- **Bridal Makeup**: Complete makeover packages for special occasions
 
-### 3. Styling System
-- **Color Scheme**: Pink gradient theme (fce4ec to f8bbd9) for beauty industry appeal
-- **Typography**: Poppins font family for modern, clean appearance
-- **Responsive Design**: Mobile-first approach with flexible grid layouts
-- **Visual Effects**: Gradients, shadows, and hover states for interactive elements
+### 3. Interactive Features
+- **Service Selection**: Click-to-select cards with visual feedback
+- **Booking System**: Comprehensive form with WhatsApp integration
+- **Product Cart**: Add-to-cart functionality with status updates
+- **FAQ Accordion**: Expandable Q&A interface
+- **User Authentication**: Modal-based login/registration system
+- **Referral Sharing**: Native share API with clipboard fallback
+- **Contact Forms**: Multi-purpose query submission
+- **Navigation**: Dropdown menus and smooth scrolling
+
+### 4. Enhanced UI/UX Elements
+- **Rating System**: Star ratings and review counts for services
+- **Statistics Dashboard**: Customer, stylist, and city metrics
+- **Product Pricing**: Original vs discounted price display
+- **Notification System**: Toast notifications for user actions
+- **Loading States**: Visual feedback for async operations
+- **Mobile Responsive**: Optimized layouts for all screen sizes
 
 ## Data Flow
 
