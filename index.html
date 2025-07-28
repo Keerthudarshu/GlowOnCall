@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowOnCall - Beauty at Your Doorstep</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.svg" alt="GlowOnCall Logo" class="logo">
+                <div class="logo-text">
+                    <h1>GlowOnCall</h1>
+                    <p>Beauty at Your Doorstep</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#booking" class="nav-link">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Professional Beauty Services at Home</h2>
+                <p>Experience luxury salon treatments in the comfort of your own home. Our certified professionals bring the spa to you.</p>
+                <a href="#booking" class="cta-button">Book Your Service</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card" data-service="Haircut">
+                    <div class="service-image">
+                        <img src="https://pixabay.com/get/gc4e68b41ac12edeaf9e938b629080b15e573d3a974d1ac00a4de7ece3ee721f082fea90a4719ca49f2a24c807ee6366343c5b1ed49bd5c5e14491197acea96ec_1280.jpg" alt="Haircut Service">
+                        <div class="service-overlay">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Haircut & Styling</h3>
+                        <p>Professional hair cutting and styling services by expert stylists.</p>
+                        <div class="service-price">Starting from ₹500</div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="Facial">
+                    <div class="service-image">
+                        <img src="https://pixabay.com/get/gf9038ed4253a7f816282b71503b1e17eed53b390c210b975f78e522f237aad4d5a39a4ff0597e6f00d2f1acddbeab68f18080a7916295e5c11f96b16055d5e5b_1280.jpg" alt="Facial Service">
+                        <div class="service-overlay">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Facial Treatment</h3>
+                        <p>Rejuvenating facial treatments for glowing and healthy skin.</p>
+                        <div class="service-price">Starting from ₹800</div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="Waxing">
+                    <div class="service-image">
+                        <img src="https://pixabay.com/get/g6c41dfb1f7a57aa5dcf72a647cac0ac976145fc60018ef1d3acea15e1df4790bcdf91eb9dda7cf9c0fdee1cc7884367fd8dc007a88a2204200c5260e4fb4b45b_1280.jpg" alt="Waxing Service">
+                        <div class="service-overlay">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Waxing</h3>
+                        <p>Professional waxing services for smooth and silky skin.</p>
+                        <div class="service-price">Starting from ₹300</div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="Pedicure">
+                    <div class="service-image">
+                        <img src="https://pixabay.com/get/gf20059a2d040e72d971ab5af8cb1d5a651087ad7e5f58c78e236453073c5d31ac95c3b74fc726a6ee97627437cd738e367f60f216b3bc29505080f0f82ebf12e_1280.jpg" alt="Pedicure Service">
+                        <div class="service-overlay">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Pedicure & Manicure</h3>
+                        <p>Complete nail care and foot treatment for beautiful hands and feet.</p>
+                        <div class="service-price">Starting from ₹400</div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-service="Massage">
+                    <div class="service-image">
+                        <img src="https://pixabay.com/get/gb36eca2b9201a387dc6ab4c77ba3e2e275dd16d6f28592a0f34a037ab3846d101d313ba0ac8c56dc0b847afdf0e52e83bd5932ff63eb77d468d410f5a0370da6_1280.jpg" alt="Massage Service">
+                        <div class="service-overlay">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Massage Therapy</h3>
+                        <p>Relaxing massage therapy to relieve stress and tension.</p>
+                        <div class="service-price">Starting from ₹1000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Appointment</h2>
+            <div class="booking-container">
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <span class="error-message" id="fullNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Select Service *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Choose a service</option>
+                            <option value="Haircut">Haircut & Styling</option>
+                            <option value="Facial">Facial Treatment</option>
+                            <option value="Waxing">Waxing</option>
+                            <option value="Pedicure">Pedicure & Manicure</option>
+                            <option value="Massage">Massage Therapy</option>
+                        </select>
+                        <span class="error-message" id="serviceError"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date *</label>
+                            <input type="date" id="date" name="date" required>
+                            <span class="error-message" id="dateError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Preferred Time *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Select time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                                <option value="7:00 PM">7:00 PM</option>
+                            </select>
+                            <span class="error-message" id="timeError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Complete Address *</label>
+                        <textarea id="address" name="address" rows="3" placeholder="Enter your complete address with landmarks" required></textarea>
+                        <span class="error-message" id="addressError"></span>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <i class="fab fa-whatsapp"></i>
+                        Book via WhatsApp
+                    </button>
+                </form>
+
+                <div class="booking-info">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Service Hours</h4>
+                            <p>9:00 AM - 7:00 PM<br>All days of the week</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Safety First</h4>
+                            <p>All equipment sanitized<br>Certified professionals</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-home"></i>
+                        <div>
+                            <h4>Home Service</h4>
+                            <p>Professional service<br>at your convenience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.svg" alt="GlowOnCall Logo">
+                    <p>Beauty at Your Doorstep</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +91 XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@glowoncall.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GlowOnCall. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

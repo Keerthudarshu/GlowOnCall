@@ -1,0 +1,436 @@
+// Global variables
+let selectedService = '';
+
+// DOM Elements
+const bookingForm = document.getElementById('bookingForm');
+const serviceCards = document.querySelectorAll('.service-card');
+const serviceSelect = document.getElementById('service');
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
+
+function initializeApp() {
+    // Set minimum date to today
+    setMinDate();
+    
+    // Add event listeners
+    addEventListeners();
+    
+    // Initialize service selection
+    initializeServiceSelection();
+    
+    // Initialize smooth scrolling
+    initializeSmoothScrolling();
+}
+
+function setMinDate() {
+    const dateInput = document.getElementById('date');
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0];
+    dateInput.min = formattedDate;
+}
+
+function addEventListeners() {
+    // Form submission
+    bookingForm.addEventListener('submit', handleFormSubmission);
+    
+    // Service card clicks
+    serviceCards.forEach(card => {
+        card.addEventListener('click', handleServiceCardClick);
+    });
+    
+    // Service dropdown change
+    serviceSelect.addEventListener('change', handleServiceSelectChange);
+    
+    // Real-time validation
+    addRealTimeValidation();
+}
+
+function initializeServiceSelection() {
+    // Sync service cards with dropdown
+    serviceCards.forEach(card => {
+        const service = card.dataset.service;
+        card.addEventListener('click', () => {
+            selectService(service);
+        });
+    });
+}
+
+function initializeSmoothScrolling() {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+function handleServiceCardClick(event) {
+    const card = event.currentTarget;
+    const service = card.dataset.service;
+    selectService(service);
+}
+
+function handleServiceSelectChange(event) {
+    const service = event.target.value;
+    selectService(service);
+}
+
+function selectService(service) {
+    selectedService = service;
+    
+    // Update service cards visual state
+    serviceCards.forEach(card => {
+        card.classList.remove('selected');
+        if (card.dataset.service === service) {
+            card.classList.add('selected');
+        }
+    });
+    
+    // Update dropdown
+    serviceSelect.value = service;
+    
+    // Clear any previous service error
+    clearError('service');
+    validateField('service');
+}
+
+function addRealTimeValidation() {
+    const fields = ['fullName', 'phone', 'service', 'date', 'time', 'address'];
+    
+    fields.forEach(fieldName => {
+        const field = document.getElementById(fieldName);
+        if (field) {
+            field.addEventListener('blur', () => validateField(fieldName));
+            field.addEventListener('input', () => {
+                clearError(fieldName);
+                if (field.value.trim()) {
+                    validateField(fieldName);
+                }
+            });
+        }
+    });
+}
+
+function validateField(fieldName) {
+    const field = document.getElementById(fieldName);
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+    
+    switch (fieldName) {
+        case 'fullName':
+            if (!value) {
+                errorMessage = 'Full name is required';
+                isValid = false;
+            } else if (value.length < 2) {
+                errorMessage = 'Name must be at least 2 characters long';
+                isValid = false;
+            } else if (!/^[a-zA-Z\s]+$/.test(value)) {
+                errorMessage = 'Name should only contain letters and spaces';
+                isValid = false;
+            }
+            break;
+            
+        case 'phone':
+            if (!value) {
+                errorMessage = 'Phone number is required';
+                isValid = false;
+            } else if (!/^[0-9]{10}$/.test(value)) {
+                errorMessage = 'Please enter a valid 10-digit phone number';
+                isValid = false;
+            }
+            break;
+            
+        case 'service':
+            if (!value) {
+                errorMessage = 'Please select a service';
+                isValid = false;
+            }
+            break;
+            
+        case 'date':
+            if (!value) {
+                errorMessage = 'Please select a date';
+                isValid = false;
+            } else {
+                const selectedDate = new Date(value);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                if (selectedDate < today) {
+                    errorMessage = 'Please select a future date';
+                    isValid = false;
+                }
+            }
+            break;
+            
+        case 'time':
+            if (!value) {
+                errorMessage = 'Please select a time';
+                isValid = false;
+            }
+            break;
+            
+        case 'address':
+            if (!value) {
+                errorMessage = 'Address is required';
+                isValid = false;
+            } else if (value.length < 10) {
+                errorMessage = 'Please enter a complete address';
+                isValid = false;
+            }
+            break;
+    }
+    
+    // Update field styling and error message
+    const errorElement = document.getElementById(fieldName + 'Error');
+    if (errorElement) {
+        errorElement.textContent = errorMessage;
+    }
+    
+    field.classList.remove('error', 'valid');
+    if (value) {
+        field.classList.add(isValid ? 'valid' : 'error');
+    }
+    
+    return isValid;
+}
+
+function clearError(fieldName) {
+    const errorElement = document.getElementById(fieldName + 'Error');
+    if (errorElement) {
+        errorElement.textContent = '';
+    }
+    
+    const field = document.getElementById(fieldName);
+    if (field) {
+        field.classList.remove('error');
+    }
+}
+
+function validateForm() {
+    const fields = ['fullName', 'phone', 'service', 'date', 'time', 'address'];
+    let isFormValid = true;
+    
+    fields.forEach(fieldName => {
+        const isFieldValid = validateField(fieldName);
+        if (!isFieldValid) {
+            isFormValid = false;
+        }
+    });
+    
+    return isFormValid;
+}
+
+function handleFormSubmission(event) {
+    event.preventDefault();
+    
+    // Validate form
+    if (!validateForm()) {
+        // Scroll to first error
+        const firstError = document.querySelector('.error');
+        if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstError.focus();
+        }
+        return;
+    }
+    
+    // Show loading state
+    const submitButton = document.querySelector('.submit-button');
+    submitButton.classList.add('loading');
+    submitButton.disabled = true;
+    
+    // Get form data
+    const formData = getFormData();
+    
+    // Send to WhatsApp
+    sendToWhatsApp(formData);
+    
+    // Reset loading state after a short delay
+    setTimeout(() => {
+        submitButton.classList.remove('loading');
+        submitButton.disabled = false;
+    }, 2000);
+}
+
+function getFormData() {
+    return {
+        fullName: document.getElementById('fullName').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        service: document.getElementById('service').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        address: document.getElementById('address').value.trim()
+    };
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+
+function sendToWhatsApp(formData) {
+    // WhatsApp number - you can set this as an environment variable or hardcode it
+    const phone = "91XXXXXXXXXX"; // Replace with actual WhatsApp number
+    
+    // Format the message
+    const message = `Hello! I'd like to book a salon service.
+
+Name: ${formData.fullName}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Date: ${formatDate(formData.date)}
+Time: ${formData.time}
+Address: ${formData.address}
+
+Please confirm my appointment. Thank you!`;
+
+    // Create WhatsApp URL
+    const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappURL, '_blank');
+    
+    // Show success message
+    showSuccessMessage();
+    
+    // Reset form after successful submission
+    setTimeout(() => {
+        resetForm();
+    }, 1000);
+}
+
+function showSuccessMessage() {
+    // Create and show a success notification
+    const notification = document.createElement('div');
+    notification.className = 'success-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span>Redirecting to WhatsApp...</span>
+        </div>
+    `;
+    
+    // Add notification styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #4caf50, #45a049);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        z-index: 10000;
+        animation: slideIn 0.3s ease-out;
+    `;
+    
+    // Add animation keyframes
+    if (!document.querySelector('#notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+function resetForm() {
+    // Reset form fields
+    bookingForm.reset();
+    
+    // Clear service selection
+    selectedService = '';
+    serviceCards.forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // Clear all error messages
+    const errorElements = document.querySelectorAll('.error-message');
+    errorElements.forEach(element => {
+        element.textContent = '';
+    });
+    
+    // Clear field validation classes
+    const fields = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
+    fields.forEach(field => {
+        field.classList.remove('error', 'valid');
+    });
+    
+    // Reset minimum date
+    setMinDate();
+}
+
+// Utility Functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Service Worker Registration (for PWA capabilities - optional)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        // You can register a service worker here if needed for offline functionality
+        console.log('App is ready for service worker registration if needed');
+    });
+}
+
+// Handle page visibility changes
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        // Update minimum date when user returns to the page
+        setMinDate();
+    }
+});
+
+// Add keyboard navigation for accessibility
+document.addEventListener('keydown', (e) => {
+    // Handle Enter key on service cards
+    if (e.key === 'Enter' && e.target.classList.contains('service-card')) {
+        e.target.click();
+    }
+});
+
+// Initialize app when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
