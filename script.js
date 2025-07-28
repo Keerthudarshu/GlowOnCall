@@ -284,8 +284,8 @@ function formatDate(dateString) {
 }
 
 function sendToWhatsApp(formData) {
-    // WhatsApp number - you can set this as an environment variable or hardcode it
-    const phone = "91XXXXXXXXXX"; // Replace with actual WhatsApp number
+    // WhatsApp number - updated to user's specified number
+    const phone = "917892783668";
     
     // Format the message
     const message = `Hello! I'd like to book a salon service.
@@ -653,6 +653,116 @@ function initializeAuthForms() {
     }
 }
 
+// Page Navigation System
+function initializeNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link, .dropdown-link');
+    const sections = document.querySelectorAll('section');
+    const serviceDetails = document.querySelectorAll('.service-detail');
+    
+    // Hide all service detail pages initially
+    serviceDetails.forEach(section => section.classList.remove('active'));
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            
+            // Remove active class from all nav links
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            
+            // Add active class to clicked link
+            link.classList.add('active');
+            
+            // Handle service detail pages
+            if (targetId.startsWith('service-')) {
+                // Hide all sections
+                sections.forEach(section => {
+                    if (!section.classList.contains('service-detail')) {
+                        section.style.display = 'none';
+                    }
+                });
+                
+                // Hide all service detail pages
+                serviceDetails.forEach(section => section.classList.remove('active'));
+                
+                // Show target service detail page
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            } else {
+                // Show regular sections
+                serviceDetails.forEach(section => section.classList.remove('active'));
+                sections.forEach(section => {
+                    if (!section.classList.contains('service-detail')) {
+                        section.style.display = 'block';
+                    }
+                });
+                
+                // Smooth scroll to target
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Service Booking Forms
+function initializeServiceBooking() {
+    const bookingForms = document.querySelectorAll('.service-booking-form');
+    
+    // Set minimum date for all date inputs in service forms
+    const dateInputs = document.querySelectorAll('.service-booking-form input[type="date"]');
+    dateInputs.forEach(input => {
+        const today = new Date();
+        const formattedDate = today.toISOString().split('T')[0];
+        input.min = formattedDate;
+    });
+    
+    bookingForms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            const serviceName = form.getAttribute('data-service');
+            
+            // Create WhatsApp message
+            const message = `Hi! I would like to book ${serviceName}.
+
+📝 Booking Details:
+👤 Name: ${data.name}
+📱 Phone: ${data.phone}
+📍 Address: ${data.address}
+📅 Date: ${data.date}
+⏰ Time: ${data.time}
+💄 Service: ${data.serviceType}
+
+Please confirm my appointment. Thank you!`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // WhatsApp number (as specified by user)
+            const phoneNumber = '917892783668';
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success notification
+            showNotification(`Redirecting to WhatsApp to confirm your ${serviceName} booking!`, 'success');
+        });
+    });
+}
+
 // Enhanced App Initialization
 function initializeApp() {
     // Set minimum date to today
@@ -663,6 +773,12 @@ function initializeApp() {
     
     // Initialize service selection
     initializeServiceSelection();
+    
+    // Initialize navigation system
+    initializeNavigation();
+    
+    // Initialize service booking
+    initializeServiceBooking();
     
     // Initialize smooth scrolling
     initializeSmoothScrolling();
@@ -677,6 +793,9 @@ function initializeApp() {
     
     // Add notification styles if not present
     addNotificationStyles();
+    
+    // Set home as active by default
+    document.querySelector('.nav-link[href="#home"]')?.classList.add('active');
 }
 
 function addNotificationStyles() {

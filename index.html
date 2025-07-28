@@ -20,32 +20,35 @@
                 </div>
             </div>
             <nav class="nav">
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#booking" class="nav-link">Book Now</a>
-                <a href="#about" class="nav-link">About Us</a>
-                <a href="#reviews" class="nav-link">Reviews</a>
-                <a href="#products" class="nav-link">Products</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#home" class="nav-link">Home</a>
                 <div class="nav-dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">More</a>
+                    <a href="#services" class="nav-link dropdown-toggle">Services</a>
                     <div class="dropdown-menu">
-                        <a href="#faq" class="dropdown-link">FAQ</a>
-                        <a href="#refer" class="dropdown-link">Refer & Earn</a>
-                        <a href="#login" class="dropdown-link">Login</a>
-                        <a href="#register" class="dropdown-link">Register</a>
+                        <a href="#service-hair" class="dropdown-link">Hair Services</a>
+                        <a href="#service-facial" class="dropdown-link">Facial & Skin</a>
+                        <a href="#service-nails" class="dropdown-link">Nail Care</a>
+                        <a href="#service-waxing" class="dropdown-link">Waxing & Threading</a>
+                        <a href="#service-massage" class="dropdown-link">Massage</a>
+                        <a href="#service-bridal" class="dropdown-link">Bridal Makeup</a>
                     </div>
                 </div>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#login" class="nav-link">Login</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h2>Professional Beauty Services at Home</h2>
                 <p>Experience luxury salon treatments in the comfort of your own home. Our certified professionals bring the spa to you.</p>
-                <a href="#booking" class="cta-button">Book Your Service</a>
+                <a href="#services" class="cta-button">Book Your Service</a>
             </div>
         </div>
     </section>
@@ -161,6 +164,521 @@
                             <span class="rating-text">4.9 (650 reviews)</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Individual Service Pages -->
+    
+    <!-- Hair Services Page -->
+    <section id="service-hair" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hair Services">
+                <div class="service-info">
+                    <h2>Hair Services</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.8 (2.5k reviews)</span>
+                    </div>
+                    <p>Professional hair cutting, styling, and hair spa services by expert stylists at your home.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Haircut & Styling</h4>
+                        <p>Professional haircut with styling for all hair types</p>
+                        <span class="price">₹500 - ₹800</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Hair Spa Treatment</h4>
+                        <p>Deep conditioning treatment for healthy, shiny hair</p>
+                        <span class="price">₹1200 - ₹1800</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Hair Coloring</h4>
+                        <p>Professional hair coloring with premium products</p>
+                        <span class="price">₹2000 - ₹3500</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Hair Service</h3>
+                    <form class="service-booking-form" data-service="Hair Services">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" required>
+                                <option value="">Select Service</option>
+                                <option value="Haircut & Styling">Haircut & Styling (₹500-₹800)</option>
+                                <option value="Hair Spa Treatment">Hair Spa Treatment (₹1200-₹1800)</option>
+                                <option value="Hair Coloring">Hair Coloring (₹2000-₹3500)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facial & Skin Services Page -->
+    <section id="service-facial" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Facial Services">
+                <div class="service-info">
+                    <h2>Facial & Skin Treatments</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.9 (1.8k reviews)</span>
+                    </div>
+                    <p>Rejuvenating facials, clean-ups, and skin treatments for glowing, healthy skin.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Classic Facial</h4>
+                        <p>Deep cleansing facial for all skin types</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Gold Facial</h4>
+                        <p>Premium anti-aging facial with gold particles</p>
+                        <span class="price">₹1500 - ₹2200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Clean-up & Bleach</h4>
+                        <p>Quick facial cleanup with bleaching</p>
+                        <span class="price">₹600 - ₹900</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Facial Service</h3>
+                    <form class="service-booking-form" data-service="Facial & Skin Treatments">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" required>
+                                <option value="">Select Service</option>
+                                <option value="Classic Facial">Classic Facial (₹800-₹1200)</option>
+                                <option value="Gold Facial">Gold Facial (₹1500-₹2200)</option>
+                                <option value="Clean-up & Bleach">Clean-up & Bleach (₹600-₹900)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nail Care Services Page -->
+    <section id="service-nails" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Nail Care Services">
+                <div class="service-info">
+                    <h2>Nail Care Services</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.7 (1.2k reviews)</span>
+                    </div>
+                    <p>Professional manicure and pedicure services for beautiful, healthy nails.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Classic Manicure</h4>
+                        <p>Basic nail care with shaping and polish</p>
+                        <span class="price">₹400 - ₹600</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Classic Pedicure</h4>
+                        <p>Foot care with exfoliation and nail polish</p>
+                        <span class="price">₹500 - ₹700</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Gel Manicure</h4>
+                        <p>Long-lasting gel polish manicure</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Nail Care Service</h3>
+                    <form class="service-booking-form" data-service="Nail Care">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" required>
+                                <option value="">Select Service</option>
+                                <option value="Classic Manicure">Classic Manicure (₹400-₹600)</option>
+                                <option value="Classic Pedicure">Classic Pedicure (₹500-₹700)</option>
+                                <option value="Gel Manicure">Gel Manicure (₹800-₹1200)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waxing & Threading Services Page -->
+    <section id="service-waxing" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Waxing Services">
+                <div class="service-info">
+                    <h2>Waxing & Threading</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.6 (900 reviews)</span>
+                    </div>
+                    <p>Professional waxing and threading services for smooth, hair-free skin.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Full Body Wax</h4>
+                        <p>Complete body waxing service</p>
+                        <span class="price">₹2000 - ₹2800</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Arms & Legs Wax</h4>
+                        <p>Waxing for arms and legs</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Eyebrow Threading</h4>
+                        <p>Precise eyebrow shaping and threading</p>
+                        <span class="price">₹150 - ₹250</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Waxing Service</h3>
+                    <form class="service-booking-form" data-service="Waxing & Threading">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" required>
+                                <option value="">Select Service</option>
+                                <option value="Full Body Wax">Full Body Wax (₹2000-₹2800)</option>
+                                <option value="Arms & Legs Wax">Arms & Legs Wax (₹800-₹1200)</option>
+                                <option value="Eyebrow Threading">Eyebrow Threading (₹150-₹250)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Massage Services Page -->
+    <section id="service-massage" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Massage Services">
+                <div class="service-info">
+                    <h2>Massage Therapy</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.8 (750 reviews)</span>
+                    </div>
+                    <p>Relaxing and therapeutic massage treatments for stress relief and wellness.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Full Body Massage</h4>
+                        <p>Complete body relaxation massage</p>
+                        <span class="price">₹1500 - ₹2200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Head & Shoulder Massage</h4>
+                        <p>Targeted massage for stress relief</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Foot Massage</h4>
+                        <p>Relaxing foot and leg massage</p>
+                        <span class="price">₹600 - ₹900</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Massage Service</h3>
+                    <form class="service-booking-form" data-service="Massage Therapy">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" required>
+                                <option value="">Select Service</option>
+                                <option value="Full Body Massage">Full Body Massage (₹1500-₹2200)</option>
+                                <option value="Head & Shoulder Massage">Head & Shoulder Massage (₹800-₹1200)</option>
+                                <option value="Foot Massage">Foot Massage (₹600-₹900)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridal Makeup Services Page -->
+    <section id="service-bridal" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1457972729786-0411a3b2b626?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Bridal Makeup Services">
+                <div class="service-info">
+                    <h2>Bridal Makeup & Makeover</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.9 (650 reviews)</span>
+                    </div>
+                    <p>Complete bridal makeover packages for your special day with professional makeup artists.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Bridal Makeup</h4>
+                        <p>Complete bridal makeup for wedding day</p>
+                        <span class="price">₹5000 - ₹8000</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Pre-Wedding Makeup</h4>
+                        <p>Makeup for pre-wedding photoshoots</p>
+                        <span class="price">₹3000 - ₹5000</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Party Makeup</h4>
+                        <p>Professional makeup for special occasions</p>
+                        <span class="price">₹2000 - ₹3500</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Bridal Service</h3>
+                    <form class="service-booking-form" data-service="Bridal Makeup">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="6:00 AM">6:00 AM</option>
+                                <option value="7:00 AM">7:00 AM</option>
+                                <option value="8:00 AM">8:00 AM</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" required>
+                                <option value="">Select Service</option>
+                                <option value="Bridal Makeup">Bridal Makeup (₹5000-₹8000)</option>
+                                <option value="Pre-Wedding Makeup">Pre-Wedding Makeup (₹3000-₹5000)</option>
+                                <option value="Party Makeup">Party Makeup (₹2000-₹3500)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                    </form>
                 </div>
             </div>
         </div>
