@@ -733,7 +733,7 @@ function initializeServiceBooking() {
             const serviceName = form.getAttribute('data-service');
             
             // Create WhatsApp message
-            const message = `Hi! I would like to book ${serviceName}.
+            let message = `Hi! I would like to book ${serviceName}.
 
 📝 Booking Details:
 👤 Name: ${data.name}
@@ -741,9 +741,14 @@ function initializeServiceBooking() {
 📍 Address: ${data.address}
 📅 Date: ${data.date}
 ⏰ Time: ${data.time}
-💄 Service: ${data.serviceType}
+💄 Service: ${data.serviceType}`;
 
-Please confirm my appointment. Thank you!`;
+            // Add location link if provided
+            if (data.location && data.location.trim()) {
+                message += `\n🗺️ Google Maps: ${data.location}`;
+            }
+
+            message += `\n\nPlease confirm my appointment. Thank you!`;
             
             // Encode message for URL
             const encodedMessage = encodeURIComponent(message);

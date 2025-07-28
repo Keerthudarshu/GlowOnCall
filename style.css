@@ -1574,3 +1574,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         font-size: 2rem;
     }
 }
+
+/* Help Text Styling */
+.help-text {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+.form-group input[type="url"] {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="url"]:focus {
+    border-color: #e91e63;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+}
