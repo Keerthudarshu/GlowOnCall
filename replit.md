@@ -15,10 +15,14 @@ Preferred communication style: Simple, everyday language.
 - **Design Approach**: Single-page application with smooth scrolling navigation
 - **Styling**: CSS Grid and Flexbox for responsive layouts, custom CSS with Google Fonts (Poppins) and Font Awesome icons
 - **Architecture Pattern**: Component-based structure with modular CSS and JavaScript
+- **Color Scheme**: Light pink (#f8bbd9), gold (#d4af37), and black (#2e2e2e) combination
+- **Payment Integration**: UPI QR code payment system with 40% advance booking
 
 ### Backend Architecture
-- **Current State**: No backend implementation exists
-- **Future Considerations**: Will likely need a REST API for booking management, user authentication, and service provider coordination
+- **Current State**: Static website with WhatsApp integration for bookings
+- **Payment System**: UPI-based payment through QR code scanning
+- **Communication**: WhatsApp API integration for booking confirmations
+- **Future Considerations**: Could integrate with payment gateway APIs for automated processing
 
 ## Key Components
 

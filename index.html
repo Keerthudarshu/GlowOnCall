@@ -32,6 +32,7 @@
                         <a href="#service-bridal" class="dropdown-link">Bridal Makeup</a>
                     </div>
                 </div>
+                <a href="#booking" class="nav-link">Book Now</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#reviews" class="nav-link">Reviews</a>
                 <a href="#products" class="nav-link">Products</a>
@@ -48,7 +49,7 @@
             <div class="hero-content">
                 <h2>Professional Beauty Services at Home</h2>
                 <p>Experience luxury salon treatments in the comfort of your own home. Our certified professionals bring the spa to you.</p>
-                <a href="#services" class="cta-button">Book Your Service</a>
+                <a href="#booking" class="cta-button">Book Your Service</a>
             </div>
         </div>
     </section>
@@ -56,112 +57,501 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card" data-service="Haircut & Styling">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Haircut Service">
-                        <div class="service-overlay">
-                            <i class="fas fa-cut"></i>
+            <h2 class="section-title">Our Premium Services</h2>
+            
+            <!-- Facials Section -->
+            <div class="service-category">
+                <h3 class="category-title">✨ Premium Facials</h3>
+                <div class="services-grid">
+                    <div class="service-card" data-service="HydraFacial" data-price="1799" data-original="2500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="HydraFacial">
+                            <div class="service-overlay"><i class="fas fa-spa"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>HydraFacial</h3>
+                            <p>Deep cleansing, exfoliation, and hydration for glowing skin</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,799</span>
+                                <span class="original-price">₹2,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (890 reviews)</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Haircut & Styling</h3>
-                        <p>Professional hair cutting, styling, and hair spa services by expert stylists.</p>
-                        <div class="service-price">Starting from ₹500</div>
-                        <div class="service-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">4.8 (2.5k reviews)</span>
+
+                    <div class="service-card" data-service="Collagen Renewal Facial" data-price="2999" data-original="3500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Collagen Facial">
+                            <div class="service-overlay"><i class="fas fa-leaf"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Collagen Renewal Facial</h3>
+                            <p>Anti-aging treatment to boost collagen and reduce fine lines</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,999</span>
+                                <span class="original-price">₹3,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (654 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Vitamin C Glow Facial" data-price="2399" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Vitamin C Facial">
+                            <div class="service-overlay"><i class="fas fa-sun"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Vitamin C Glow Facial</h3>
+                            <p>Brightening treatment for radiant, glowing complexion</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,399</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (723 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Korean Glass Skin Facial" data-price="2499" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Korean Glass Skin">
+                            <div class="service-overlay"><i class="fas fa-gem"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Korean Glass Skin Facial</h3>
+                            <p>Achieve that perfect Korean glass skin glow and smoothness</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,499</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (1.2k reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Charcoal Detox Facial" data-price="2599" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Charcoal Detox">
+                            <div class="service-overlay"><i class="fas fa-fire"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Charcoal Detox Facial</h3>
+                            <p>Deep pore cleansing to remove impurities and toxins</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,599</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (567 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Golden Glow Facial" data-price="2699" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Golden Glow">
+                            <div class="service-overlay"><i class="fas fa-crown"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Golden Glow Facial</h3>
+                            <p>Luxurious gold-infused treatment for ultimate radiance</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,699</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (434 reviews)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="service-card" data-service="Facial & Skin Treatments">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Facial Service">
-                        <div class="service-overlay">
-                            <i class="fas fa-spa"></i>
+            <!-- Add-ons Section -->
+            <div class="service-category">
+                <h3 class="category-title">💎 Add-on Services</h3>
+                <div class="services-grid">
+                    <div class="service-card addon-service" data-service="Dermaplaning" data-price="799" data-original="1300">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dermaplaning">
+                            <div class="service-overlay"><i class="fas fa-magic"></i></div>
+                            <div class="addon-badge">Add-on</div>
                         </div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Facial & Skin Treatments</h3>
-                        <p>Rejuvenating facials, clean-ups, bleaching for glowing and healthy skin.</p>
-                        <div class="service-price">Starting from ₹800</div>
-                        <div class="service-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">4.9 (1.8k reviews)</span>
+                        <div class="service-content">
+                            <h3>Dermaplaning</h3>
+                            <p>Gentle exfoliation for smoother, brighter skin</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹799</span>
+                                <span class="original-price">₹1,300</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="service-card" data-service="Waxing & Threading">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Waxing Service">
-                        <div class="service-overlay">
-                            <i class="fas fa-leaf"></i>
+            <!-- Lash Extensions Section -->
+            <div class="service-category">
+                <h3 class="category-title">👁️ Lash Extensions</h3>
+                <div class="services-grid">
+                    <div class="service-card" data-service="Classic Lash Extension" data-price="1799" data-original="2500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Classic Lashes">
+                            <div class="service-overlay"><i class="fas fa-eye"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Classic Lash Extension</h3>
+                            <p>Natural-looking individual lash extensions for everyday elegance</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,799</span>
+                                <span class="original-price">₹2,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (1.1k reviews)</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Waxing & Threading</h3>
-                        <p>Professional waxing and threading services for smooth and silky skin.</p>
-                        <div class="service-price">Starting from ₹300</div>
-                        <div class="service-rating">
-                            <span class="stars">★★★★☆</span>
-                            <span class="rating-text">4.7 (3.2k reviews)</span>
+
+                    <div class="service-card" data-service="Hybrid Lash Extension" data-price="2999" data-original="3500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hybrid Lashes">
+                            <div class="service-overlay"><i class="fas fa-star"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Hybrid Lash Extension</h3>
+                            <p>Perfect blend of classic and volume for dramatic effect</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,999</span>
+                                <span class="original-price">₹3,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (789 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Lash Lift" data-price="1500" data-original="2000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lash Lift">
+                            <div class="service-overlay"><i class="fas fa-arrow-up"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Lash Lift</h3>
+                            <p>Natural curl enhancement for your existing lashes</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,500</span>
+                                <span class="original-price">₹2,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.7 (456 reviews)</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="service-card" data-service="Nail Care">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Nail Care Service">
-                        <div class="service-overlay">
-                            <i class="fas fa-hand-sparkles"></i>
+            <!-- Eyebrow Services -->
+            <div class="service-category">
+                <h3 class="category-title">🌟 Eyebrow Services</h3>
+                <div class="services-grid">
+                    <div class="service-card" data-service="Eyebrow Lamination" data-price="1499" data-original="2000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Brow Lamination">
+                            <div class="service-overlay"><i class="fas fa-brush"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Eyebrow Lamination</h3>
+                            <p>Perfectly groomed, fuller-looking brows that last weeks</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (567 reviews)</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Manicure & Pedicure</h3>
-                        <p>Complete nail care and foot treatment for beautiful hands and feet.</p>
-                        <div class="service-price">Starting from ₹400</div>
-                        <div class="service-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">4.8 (1.5k reviews)</span>
+
+                    <div class="service-card addon-service" data-service="Brow Tint" data-price="500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Brow Tint">
+                            <div class="service-overlay"><i class="fas fa-palette"></i></div>
+                            <div class="addon-badge">Add-on</div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Brow Tint</h3>
+                            <p>Natural color enhancement for defined eyebrows</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹500</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="service-card" data-service="Massage Therapy">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Massage Service">
-                        <div class="service-overlay">
-                            <i class="fas fa-hands"></i>
+            <!-- Combo Packages -->
+            <div class="service-category combo-section">
+                <h3 class="category-title">🎁 Special Combo Packages</h3>
+                <div class="combo-grid">
+                    <div class="combo-card" data-service="HydraFacial Combo" data-price="3000">
+                        <div class="combo-content">
+                            <h3>HydraFacial Complete</h3>
+                            <div class="combo-includes">
+                                <p>✨ HydraFacial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,000</span>
+                                <span class="combo-savings">Save ₹1,398!</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Massage Therapy</h3>
-                        <p>Relaxing massage therapy to relieve stress and tension.</p>
-                        <div class="service-price">Starting from ₹1000</div>
-                        <div class="service-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">4.9 (980 reviews)</span>
+
+                    <div class="combo-card" data-service="Vitamin C Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Vitamin C Glow Package</h3>
+                            <div class="combo-includes">
+                                <p>☀️ Vitamin C Glow Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹897!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card" data-service="Korean Glass Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Korean Glass Skin Package</h3>
+                            <div class="combo-includes">
+                                <p>💎 Korean Glass Skin Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹797!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card" data-service="Charcoal Detox Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Charcoal Detox Package</h3>
+                            <div class="combo-includes">
+                                <p>🔥 Charcoal Detox Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹697!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card" data-service="Golden Glow Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Golden Glow Package</h3>
+                            <div class="combo-includes">
+                                <p>👑 Golden Glow Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹597!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card premium" data-service="Collagen Renewal Combo" data-price="4000">
+                        <div class="combo-content">
+                            <h3>Premium Collagen Package</h3>
+                            <div class="combo-includes">
+                                <p>🌟 Collagen Renewal Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹4,000</span>
+                                <span class="combo-savings">Save ₹1,097!</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="service-card" data-service="Bridal Makeup">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Bridal Makeup Service">
-                        <div class="service-overlay">
-                            <i class="fas fa-palette"></i>
+    <!-- Main Booking Section -->
+    <section id="booking" class="main-booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Service</h2>
+            <div class="booking-container">
+                <div class="booking-form-section">
+                    <form id="mainBookingForm" class="main-booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Your Name *</label>
+                                <input type="text" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-content">
-                        <h3>Bridal Makeup & Makeover</h3>
-                        <p>Complete bridal makeup packages and makeover services for special occasions.</p>
-                        <div class="service-price">Starting from ₹5000</div>
-                        <div class="service-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">4.9 (650 reviews)</span>
+                        
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="service" id="serviceSelector" required>
+                                <option value="">Select Your Service</option>
+                                <optgroup label="Premium Facials">
+                                    <option value="HydraFacial" data-price="1799">HydraFacial - ₹1,799</option>
+                                    <option value="Collagen Renewal Facial" data-price="2999">Collagen Renewal Facial - ₹2,999</option>
+                                    <option value="Vitamin C Glow Facial" data-price="2399">Vitamin C Glow Facial - ₹2,399</option>
+                                    <option value="Korean Glass Skin Facial" data-price="2499">Korean Glass Skin Facial - ₹2,499</option>
+                                    <option value="Charcoal Detox Facial" data-price="2599">Charcoal Detox Facial - ₹2,599</option>
+                                    <option value="Golden Glow Facial" data-price="2699">Golden Glow Facial - ₹2,699</option>
+                                </optgroup>
+                                <optgroup label="Lash Extensions">
+                                    <option value="Classic Lash Extension" data-price="1799">Classic Lash Extension - ₹1,799</option>
+                                    <option value="Hybrid Lash Extension" data-price="2999">Hybrid Lash Extension - ₹2,999</option>
+                                    <option value="Lash Lift" data-price="1500">Lash Lift - ₹1,500</option>
+                                </optgroup>
+                                <optgroup label="Eyebrow Services">
+                                    <option value="Eyebrow Lamination" data-price="1499">Eyebrow Lamination - ₹1,499</option>
+                                    <option value="Brow Tint" data-price="500">Brow Tint - ₹500</option>
+                                </optgroup>
+                                <optgroup label="Add-ons">
+                                    <option value="Dermaplaning" data-price="799">Dermaplaning - ₹799</option>
+                                </optgroup>
+                                <optgroup label="Combo Packages">
+                                    <option value="HydraFacial Combo" data-price="3000">HydraFacial Complete - ₹3,000</option>
+                                    <option value="Vitamin C Combo" data-price="3500">Vitamin C Glow Package - ₹3,500</option>
+                                    <option value="Korean Glass Combo" data-price="3500">Korean Glass Skin Package - ₹3,500</option>
+                                    <option value="Charcoal Detox Combo" data-price="3500">Charcoal Detox Package - ₹3,500</option>
+                                    <option value="Golden Glow Combo" data-price="3500">Golden Glow Package - ₹3,500</option>
+                                    <option value="Collagen Renewal Combo" data-price="4000">Premium Collagen Package - ₹4,000</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Preferred Date *</label>
+                                <input type="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Time *</label>
+                                <select name="time" required>
+                                    <option value="">Select Time</option>
+                                    <option value="9:00 AM">9:00 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="1:00 PM">1:00 PM</option>
+                                    <option value="2:00 PM">2:00 PM</option>
+                                    <option value="3:00 PM">3:00 PM</option>
+                                    <option value="4:00 PM">4:00 PM</option>
+                                    <option value="5:00 PM">5:00 PM</option>
+                                    <option value="6:00 PM">6:00 PM</option>
+                                    <option value="7:00 PM">7:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Complete Address *</label>
+                            <textarea name="address" rows="3" placeholder="Please provide your complete address with landmark details..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Google Maps Location (Optional)</label>
+                            <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                            <small class="help-text">This helps our beautician reach you easily</small>
+                        </div>
+
+                        <div class="pricing-summary" id="pricingSummary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span id="serviceTotal">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span id="bookingAmount">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span id="remainingAmount">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="book-now-btn">
+                            Book Now & Pay 40% Advance
+                        </button>
+                    </form>
+                </div>
+
+                <div class="payment-section">
+                    <div class="payment-info">
+                        <h3>Secure Payment</h3>
+                        <p>Pay only 40% to confirm your booking</p>
+                        
+                        <div class="payment-qr" id="paymentQR" style="display: none;">
+                            <div class="qr-container">
+                                <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                <div class="payment-details">
+                                    <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                    <p><strong>Account:</strong> Keerthu Darshu</p>
+                                </div>
+                            </div>
+                            <div class="payment-instructions">
+                                <ol>
+                                    <li>Scan the QR code with any UPI app</li>
+                                    <li>Pay the booking amount shown above</li>
+                                    <li>Take a screenshot of payment confirmation</li>
+                                    <li>Click "Confirm Booking" to proceed</li>
+                                </ol>
+                            </div>
+                            <button type="button" class="confirm-payment-btn" onclick="confirmPaymentAndBooking()">
+                                ✅ Payment Done - Confirm Booking
+                            </button>
+                        </div>
+
+                        <div class="payment-features">
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>100% Secure Payment</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Instant Confirmation</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-phone"></i>
+                                <span>24/7 Support</span>
+                            </div>
                         </div>
                     </div>
                 </div>

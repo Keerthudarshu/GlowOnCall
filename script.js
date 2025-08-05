@@ -1,10 +1,13 @@
 // Global variables
 let selectedService = '';
+let currentBookingData = {};
 
 // DOM Elements
 const bookingForm = document.getElementById('bookingForm');
+const mainBookingForm = document.getElementById('mainBookingForm');
 const serviceCards = document.querySelectorAll('.service-card');
 const serviceSelect = document.getElementById('service');
+const serviceSelector = document.getElementById('serviceSelector');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -23,13 +26,22 @@ function initializeApp() {
     
     // Initialize smooth scrolling
     initializeSmoothScrolling();
+    
+    // Initialize main booking form
+    initializeMainBookingForm();
+    
+    // Initialize service card interactions
+    initializeServiceCardInteractions();
 }
 
 function setMinDate() {
     const dateInput = document.getElementById('date');
+    const mainDateInput = document.querySelector('#mainBookingForm input[name="date"]');
     const today = new Date();
     const formattedDate = today.toISOString().split('T')[0];
-    dateInput.min = formattedDate;
+    
+    if (dateInput) dateInput.min = formattedDate;
+    if (mainDateInput) mainDateInput.min = formattedDate;
 }
 
 function addEventListeners() {
@@ -796,6 +808,12 @@ function initializeApp() {
     initializeReferral();
     initializeAuthForms();
     
+    // Initialize main booking form
+    initializeMainBookingForm();
+    
+    // Initialize service card interactions
+    initializeServiceCardInteractions();
+    
     // Add notification styles if not present
     addNotificationStyles();
     
@@ -897,8 +915,179 @@ function addNotificationStyles() {
     }
 }
 
+// Main Booking Form Functions
+function initializeMainBookingForm() {
+    if (!mainBookingForm) return;
+    
+    // Service selector change event
+    serviceSelector.addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const price = selectedOption.getAttribute('data-price');
+        
+        if (price) {
+            updatePricingDisplay(parseInt(price));
+            document.getElementById('pricingSummary').style.display = 'block';
+        } else {
+            document.getElementById('pricingSummary').style.display = 'none';
+            document.getElementById('paymentQR').style.display = 'none';
+        }
+    });
+    
+    // Main booking form submission
+    mainBookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        currentBookingData = Object.fromEntries(formData);
+        
+        // Validate required fields
+        if (!currentBookingData.name || !currentBookingData.phone || !currentBookingData.service || 
+            !currentBookingData.date || !currentBookingData.time || !currentBookingData.address) {
+            showNotification('Please fill in all required fields', 'error');
+            return;
+        }
+        
+        // Show payment QR code
+        document.getElementById('paymentQR').style.display = 'block';
+        
+        // Scroll to payment section
+        document.getElementById('paymentQR').scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+        
+        showNotification('Please scan the QR code to make payment', 'info');
+    });
+}
+
+function initializeServiceCardInteractions() {
+    // Make service cards clickable to populate booking form
+    serviceCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const serviceName = this.dataset.service;
+            const price = this.dataset.price;
+            
+            // Scroll to booking section
+            document.getElementById('booking').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Set service in dropdown
+            setTimeout(() => {
+                const option = serviceSelector.querySelector(`option[value="${serviceName}"]`);
+                if (option) {
+                    serviceSelector.value = serviceName;
+                    serviceSelector.dispatchEvent(new Event('change'));
+                }
+            }, 800);
+        });
+    });
+    
+    // Also make combo cards clickable
+    const comboCards = document.querySelectorAll('.combo-card');
+    comboCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const serviceName = this.dataset.service;
+            const price = this.dataset.price;
+            
+            // Scroll to booking section
+            document.getElementById('booking').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Set service in dropdown
+            setTimeout(() => {
+                const option = serviceSelector.querySelector(`option[value="${serviceName}"]`);
+                if (option) {
+                    serviceSelector.value = serviceName;
+                    serviceSelector.dispatchEvent(new Event('change'));
+                }
+            }, 800);
+        });
+    });
+}
+
+function updatePricingDisplay(totalPrice) {
+    const bookingAmount = Math.round(totalPrice * 0.4); // 40%
+    const remainingAmount = totalPrice - bookingAmount;
+    
+    document.getElementById('serviceTotal').textContent = `₹${totalPrice.toLocaleString()}`;
+    document.getElementById('bookingAmount').textContent = `₹${bookingAmount.toLocaleString()}`;
+    document.getElementById('remainingAmount').textContent = `₹${remainingAmount.toLocaleString()}`;
+}
+
+function confirmPaymentAndBooking() {
+    if (!currentBookingData.name) {
+        showNotification('Please fill the booking form first', 'error');
+        return;
+    }
+    
+    // Create comprehensive WhatsApp message
+    const selectedOption = serviceSelector.options[serviceSelector.selectedIndex];
+    const servicePrice = selectedOption.getAttribute('data-price');
+    const bookingAmount = Math.round(parseInt(servicePrice) * 0.4);
+    const remainingAmount = parseInt(servicePrice) - bookingAmount;
+    
+    let message = `🌟 *BOOKING CONFIRMATION* 🌟
+
+📋 *Service Details:*
+💅 Service: ${currentBookingData.service}
+💰 Total Amount: ₹${parseInt(servicePrice).toLocaleString()}
+💳 Paid Advance: ₹${bookingAmount.toLocaleString()} (40%)
+💸 Balance at Service: ₹${remainingAmount.toLocaleString()}
+
+👤 *Customer Details:*
+📞 Name: ${currentBookingData.name}
+📱 Phone: ${currentBookingData.phone}
+📍 Address: ${currentBookingData.address}`;
+
+    if (currentBookingData.location && currentBookingData.location.trim()) {
+        message += `\n🗺️ Maps Link: ${currentBookingData.location}`;
+    }
+
+    message += `
+
+📅 *Appointment Schedule:*
+🗓️ Date: ${currentBookingData.date}
+⏰ Time: ${currentBookingData.time}
+
+✅ *Payment Status:* ADVANCE PAID
+💳 *Payment Method:* UPI Transfer
+🏦 *Account:* Keerthu Darshu (keerthudarshu06@oksbi)
+
+📋 *Next Steps:*
+1. Your booking is confirmed!
+2. Our beautician will contact you 1 day before
+3. Please keep the remaining ₹${remainingAmount.toLocaleString()} ready for payment after service
+4. For any changes, please call us at least 24 hours before
+
+Thank you for choosing GlowOnCall! ✨`;
+    
+    // Encode message for WhatsApp
+    const encodedMessage = encodeURIComponent(message);
+    const phoneNumber = '917892783668';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    showNotification('Booking confirmed! WhatsApp message sent to complete your booking.', 'success');
+    
+    // Reset form and hide payment section
+    setTimeout(() => {
+        mainBookingForm.reset();
+        document.getElementById('pricingSummary').style.display = 'none';
+        document.getElementById('paymentQR').style.display = 'none';
+        currentBookingData = {};
+    }, 2000);
+}
+
 // Make showTab globally accessible
 window.showTab = showTab;
+window.confirmPaymentAndBooking = confirmPaymentAndBooking;
 
 // Initialize app when DOM is loaded
 if (document.readyState === 'loading') {
