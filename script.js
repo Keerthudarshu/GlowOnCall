@@ -971,13 +971,13 @@ function initializeApp() {
     document.querySelector('.nav-link[href="#home"]')?.classList.add('active');
 }
 
-// Geolocation functionality for location picker
+// Enhanced location picker with map selection
 function getCurrentLocation(button) {
     const locationInput = button.parentElement.querySelector('input[name="location"]');
     const originalText = button.textContent;
     
     // Show loading state
-    button.textContent = '🔄 Getting Location...';
+    button.textContent = '🗺️ Opening Map...';
     button.disabled = true;
     
     if (!navigator.geolocation) {
@@ -992,23 +992,32 @@ function getCurrentLocation(button) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             
-            // Create Google Maps link
-            const googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
+            // Open Google Maps with current location for precise selection
+            const mapUrl = `https://www.google.com/maps/place/${latitude},${longitude}/@${latitude},${longitude},17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d${latitude}!4d${longitude}`;
             
-            // Set the location in the input
-            locationInput.value = googleMapsLink;
+            // Open map in new tab
+            const mapWindow = window.open(mapUrl, '_blank');
             
-            // Show success notification
-            showNotification('Location captured successfully!', 'success');
+            // Show instructions for user
+            showNotification('Map opened! Please:\n1. Verify/adjust your exact location\n2. Copy the map URL\n3. Paste it in the location field', 'info');
             
-            // Reset button
-            button.textContent = '✅ Location Set';
+            // Reset button with instruction
+            button.textContent = '📍 Map Opened - Copy URL';
             button.disabled = false;
             
-            // Reset button text after 2 seconds
+            // Add click handler to open map again if needed
+            button.onclick = function() {
+                window.open(mapUrl, '_blank');
+                showNotification('Map reopened for location selection', 'info');
+            };
+            
+            // Reset button text after 5 seconds
             setTimeout(() => {
                 button.textContent = originalText;
-            }, 2000);
+                button.onclick = function() {
+                    getCurrentLocation(button);
+                };
+            }, 5000);
         },
         function(error) {
             let errorMessage = 'Unable to get your location. ';
@@ -1030,9 +1039,18 @@ function getCurrentLocation(button) {
             
             showNotification(errorMessage, 'error');
             
+            // Fallback: Open Google Maps for manual location selection
+            const fallbackMapUrl = 'https://www.google.com/maps';
+            window.open(fallbackMapUrl, '_blank');
+            showNotification('Map opened for manual location selection', 'info');
+            
             // Reset button
-            button.textContent = originalText;
+            button.textContent = '🗺️ Map Opened - Select Location';
             button.disabled = false;
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 3000);
         },
         {
             enableHighAccuracy: true,
@@ -1040,6 +1058,70 @@ function getCurrentLocation(button) {
             maximumAge: 60000
         }
     );
+}
+
+// Enhanced location picker with one-click map selection
+function openLocationPicker(button) {
+    const locationInput = button.parentElement.querySelector('input[name="location"]');
+    
+    // Get user's approximate location first
+    if (navigator.geolocation) {
+        button.textContent = '🔄 Getting Location...';
+        button.disabled = true;
+        
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                
+                // Open Google Maps with precise location for final selection
+                const preciseMapsUrl = `https://www.google.com/maps/@${latitude},${longitude},18z`;
+                window.open(preciseMapsUrl, '_blank', 'width=800,height=600');
+                
+                // Show detailed instructions
+                showLocationInstructions();
+                
+                button.textContent = '✅ Select on Map';
+                button.disabled = false;
+                
+                setTimeout(() => {
+                    button.textContent = '📍 Get My Location';
+                }, 3000);
+            },
+            function(error) {
+                // Fallback to general map
+                window.open('https://www.google.com/maps', '_blank', 'width=800,height=600');
+                showLocationInstructions();
+                
+                button.textContent = '🗺️ Map Opened';
+                button.disabled = false;
+                
+                setTimeout(() => {
+                    button.textContent = '📍 Get My Location';
+                }, 3000);
+            }
+        );
+    } else {
+        // Direct map opening
+        window.open('https://www.google.com/maps', '_blank', 'width=800,height=600');
+        showLocationInstructions();
+    }
+}
+
+function showLocationInstructions() {
+    const instructions = `
+📍 Location Selection Instructions:
+
+1. Find your exact location on the map
+2. Right-click on the precise spot
+3. Click "What's here?" or see coordinates
+4. Copy the full Google Maps URL from address bar
+5. Paste the URL in the location field below
+
+This ensures 99% accurate location for our beautician!
+    `;
+    
+    showNotification(instructions, 'info', 8000);
 }
 
 function addNotificationStyles() {
