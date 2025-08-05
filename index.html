@@ -643,14 +643,57 @@
                         </div>
                         <div class="form-group">
                             <label>Service Type *</label>
-                            <select name="serviceType" required>
+                            <select name="serviceType" class="service-price-selector" required>
                                 <option value="">Select Service</option>
-                                <option value="Haircut & Styling">Haircut & Styling (₹500-₹800)</option>
-                                <option value="Hair Spa Treatment">Hair Spa Treatment (₹1200-₹1800)</option>
-                                <option value="Hair Coloring">Hair Coloring (₹2000-₹3500)</option>
+                                <option value="Haircut & Styling" data-price="650">Haircut & Styling - ₹650</option>
+                                <option value="Hair Spa Treatment" data-price="1500">Hair Spa Treatment - ₹1,500</option>
+                                <option value="Hair Coloring" data-price="2750">Hair Coloring - ₹2,750</option>
                             </select>
                         </div>
-                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -739,14 +782,57 @@
                         </div>
                         <div class="form-group">
                             <label>Service Type *</label>
-                            <select name="serviceType" required>
+                            <select name="serviceType" class="service-price-selector" required>
                                 <option value="">Select Service</option>
-                                <option value="Classic Facial">Classic Facial (₹800-₹1200)</option>
-                                <option value="Gold Facial">Gold Facial (₹1500-₹2200)</option>
-                                <option value="Clean-up & Bleach">Clean-up & Bleach (₹600-₹900)</option>
+                                <option value="Classic Facial" data-price="1000">Classic Facial - ₹1,000</option>
+                                <option value="Gold Facial" data-price="1850">Gold Facial - ₹1,850</option>
+                                <option value="Clean-up & Bleach" data-price="750">Clean-up & Bleach - ₹750</option>
                             </select>
                         </div>
-                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -835,14 +921,57 @@
                         </div>
                         <div class="form-group">
                             <label>Service Type *</label>
-                            <select name="serviceType" required>
+                            <select name="serviceType" class="service-price-selector" required>
                                 <option value="">Select Service</option>
-                                <option value="Classic Manicure">Classic Manicure (₹400-₹600)</option>
-                                <option value="Classic Pedicure">Classic Pedicure (₹500-₹700)</option>
-                                <option value="Gel Manicure">Gel Manicure (₹800-₹1200)</option>
+                                <option value="Classic Manicure" data-price="500">Classic Manicure - ₹500</option>
+                                <option value="Classic Pedicure" data-price="600">Classic Pedicure - ₹600</option>
+                                <option value="Gel Manicure" data-price="1000">Gel Manicure - ₹1,000</option>
                             </select>
                         </div>
-                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -931,14 +1060,57 @@
                         </div>
                         <div class="form-group">
                             <label>Service Type *</label>
-                            <select name="serviceType" required>
+                            <select name="serviceType" class="service-price-selector" required>
                                 <option value="">Select Service</option>
-                                <option value="Full Body Wax">Full Body Wax (₹2000-₹2800)</option>
-                                <option value="Arms & Legs Wax">Arms & Legs Wax (₹800-₹1200)</option>
-                                <option value="Eyebrow Threading">Eyebrow Threading (₹150-₹250)</option>
+                                <option value="Full Body Wax" data-price="2400">Full Body Wax - ₹2,400</option>
+                                <option value="Arms & Legs Wax" data-price="1000">Arms & Legs Wax - ₹1,000</option>
+                                <option value="Eyebrow Threading" data-price="200">Eyebrow Threading - ₹200</option>
                             </select>
                         </div>
-                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1027,14 +1199,57 @@
                         </div>
                         <div class="form-group">
                             <label>Service Type *</label>
-                            <select name="serviceType" required>
+                            <select name="serviceType" class="service-price-selector" required>
                                 <option value="">Select Service</option>
-                                <option value="Full Body Massage">Full Body Massage (₹1500-₹2200)</option>
-                                <option value="Head & Shoulder Massage">Head & Shoulder Massage (₹800-₹1200)</option>
-                                <option value="Foot Massage">Foot Massage (₹600-₹900)</option>
+                                <option value="Full Body Massage" data-price="1850">Full Body Massage - ₹1,850</option>
+                                <option value="Head & Shoulder Massage" data-price="1000">Head & Shoulder Massage - ₹1,000</option>
+                                <option value="Foot Massage" data-price="750">Foot Massage - ₹750</option>
                             </select>
                         </div>
-                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1120,14 +1335,57 @@
                         </div>
                         <div class="form-group">
                             <label>Service Type *</label>
-                            <select name="serviceType" required>
+                            <select name="serviceType" class="service-price-selector" required>
                                 <option value="">Select Service</option>
-                                <option value="Bridal Makeup">Bridal Makeup (₹5000-₹8000)</option>
-                                <option value="Pre-Wedding Makeup">Pre-Wedding Makeup (₹3000-₹5000)</option>
-                                <option value="Party Makeup">Party Makeup (₹2000-₹3500)</option>
+                                <option value="Bridal Makeup" data-price="6500">Bridal Makeup - ₹6,500</option>
+                                <option value="Pre-Wedding Makeup" data-price="4000">Pre-Wedding Makeup - ₹4,000</option>
+                                <option value="Party Makeup" data-price="2750">Party Makeup - ₹2,750</option>
                             </select>
                         </div>
-                        <button type="submit" class="book-btn">Book on WhatsApp</button>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

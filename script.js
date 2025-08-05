@@ -736,6 +736,29 @@ function initializeServiceBooking() {
         input.min = formattedDate;
     });
     
+    // Initialize price selectors for service pages
+    const priceSelectors = document.querySelectorAll('.service-price-selector');
+    priceSelectors.forEach(selector => {
+        selector.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            const price = selectedOption.getAttribute('data-price');
+            const form = this.closest('.service-booking-form');
+            
+            if (price && form) {
+                updateServicePricingDisplay(form, parseInt(price));
+                const pricingSummary = form.querySelector('.service-pricing-summary');
+                if (pricingSummary) {
+                    pricingSummary.style.display = 'block';
+                }
+            } else {
+                const pricingSummary = form.querySelector('.service-pricing-summary');
+                const paymentQR = form.querySelector('.service-payment-qr');
+                if (pricingSummary) pricingSummary.style.display = 'none';
+                if (paymentQR) paymentQR.style.display = 'none';
+            }
+        });
+    });
+    
     bookingForms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -743,9 +766,142 @@ function initializeServiceBooking() {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
             const serviceName = form.getAttribute('data-service');
+            const serviceTypeSelector = form.querySelector('.service-price-selector');
             
-            // Create WhatsApp message
-            let message = `Hi! I would like to book ${serviceName}.
+            // Validate required fields
+            if (!data.name || !data.phone || !data.address || !data.date || !data.time || !data.serviceType) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Get price and show payment section
+            if (serviceTypeSelector) {
+                const selectedOption = serviceTypeSelector.options[serviceTypeSelector.selectedIndex];
+                const price = selectedOption.getAttribute('data-price');
+                
+                if (price) {
+                    // Store form data globally for payment confirmation
+                    form.currentBookingData = data;
+                    
+                    // Show payment QR
+                    const paymentQR = form.querySelector('.service-payment-qr');
+                    if (paymentQR) {
+                        paymentQR.style.display = 'block';
+                        paymentQR.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+                    
+                    showNotification('Please scan QR code to make payment', 'info');
+                    return;
+                }
+            }
+            
+            // Fallback to direct WhatsApp booking (if no price selector)
+            processServiceBooking(form, data, serviceName);
+        });
+    });
+    
+    // Initialize payment confirmation buttons
+    const confirmButtons = document.querySelectorAll('.confirm-service-payment-btn');
+    confirmButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const form = this.closest('.service-booking-form');
+            if (form && form.currentBookingData) {
+                const serviceName = form.getAttribute('data-service');
+                processServiceBookingWithPayment(form, form.currentBookingData, serviceName);
+            } else {
+                showNotification('Please fill the booking form first', 'error');
+            }
+        });
+    });
+}
+
+function updateServicePricingDisplay(form, totalPrice) {
+    const bookingAmount = Math.round(totalPrice * 0.4); // 40%
+    const remainingAmount = totalPrice - bookingAmount;
+    
+    const totalSpan = form.querySelector('.service-total-amount');
+    const bookingSpan = form.querySelector('.booking-amount-value');
+    const remainingSpan = form.querySelector('.remaining-amount-value');
+    const qrAmountSpan = form.querySelector('.payment-qr-amount');
+    
+    if (totalSpan) totalSpan.textContent = `₹${totalPrice.toLocaleString()}`;
+    if (bookingSpan) bookingSpan.textContent = `₹${bookingAmount.toLocaleString()}`;
+    if (remainingSpan) remainingSpan.textContent = `₹${remainingAmount.toLocaleString()}`;
+    if (qrAmountSpan) qrAmountSpan.textContent = `₹${bookingAmount.toLocaleString()}`;
+}
+
+function processServiceBookingWithPayment(form, data, serviceName) {
+    const serviceTypeSelector = form.querySelector('.service-price-selector');
+    const selectedOption = serviceTypeSelector.options[serviceTypeSelector.selectedIndex];
+    const servicePrice = selectedOption.getAttribute('data-price');
+    const bookingAmount = Math.round(parseInt(servicePrice) * 0.4);
+    const remainingAmount = parseInt(servicePrice) - bookingAmount;
+    
+    // Create comprehensive WhatsApp message with payment confirmation
+    let message = `🌟 *BOOKING CONFIRMATION* 🌟
+
+📋 *Service Details:*
+💅 Service: ${serviceName}
+🎯 Type: ${data.serviceType}
+💰 Total Amount: ₹${parseInt(servicePrice).toLocaleString()}
+💳 Paid Advance: ₹${bookingAmount.toLocaleString()} (40%)
+💸 Balance at Service: ₹${remainingAmount.toLocaleString()}
+
+👤 *Customer Details:*
+📞 Name: ${data.name}
+📱 Phone: ${data.phone}
+📍 Address: ${data.address}`;
+
+    if (data.location && data.location.trim()) {
+        message += `\n🗺️ Maps Link: ${data.location}`;
+    }
+
+    message += `
+
+📅 *Appointment Schedule:*
+🗓️ Date: ${data.date}
+⏰ Time: ${data.time}
+
+✅ *Payment Status:* ADVANCE PAID
+💳 *Payment Method:* UPI Transfer
+🏦 *Account:* Keerthu Darshu (keerthudarshu06@oksbi)
+
+📋 *Next Steps:*
+1. Your booking is confirmed!
+2. Our beautician will contact you 1 day before
+3. Please keep the remaining ₹${remainingAmount.toLocaleString()} ready for payment after service
+4. For any changes, please call us at least 24 hours before
+
+Thank you for choosing GlowOnCall! ✨`;
+    
+    // Encode message for WhatsApp
+    const encodedMessage = encodeURIComponent(message);
+    const phoneNumber = '917892783668';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    showNotification('Booking confirmed! WhatsApp message sent.', 'success');
+    
+    // Reset form and hide payment section
+    setTimeout(() => {
+        form.reset();
+        const pricingSummary = form.querySelector('.service-pricing-summary');
+        const paymentQR = form.querySelector('.service-payment-qr');
+        if (pricingSummary) pricingSummary.style.display = 'none';
+        if (paymentQR) paymentQR.style.display = 'none';
+        form.currentBookingData = null;
+    }, 2000);
+}
+
+function processServiceBooking(form, data, serviceName) {
+    // Original booking flow without payment
+    let message = `Hi! I would like to book ${serviceName}.
 
 📝 Booking Details:
 👤 Name: ${data.name}
@@ -755,29 +911,23 @@ function initializeServiceBooking() {
 ⏰ Time: ${data.time}
 💄 Service: ${data.serviceType}`;
 
-            // Add location link if provided
-            if (data.location && data.location.trim()) {
-                message += `\n🗺️ Google Maps: ${data.location}`;
-            }
+    // Add location link if provided
+    if (data.location && data.location.trim()) {
+        message += `\n🗺️ Google Maps: ${data.location}`;
+    }
 
-            message += `\n\nPlease confirm my appointment. Thank you!`;
-            
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // WhatsApp number (as specified by user)
-            const phoneNumber = '917892783668';
-            
-            // Create WhatsApp URL
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            // Open WhatsApp
-            window.open(whatsappUrl, '_blank');
-            
-            // Show success notification
-            showNotification(`Redirecting to WhatsApp to confirm your ${serviceName} booking!`, 'success');
-        });
-    });
+    message += `\n\nPlease confirm my appointment. Thank you!`;
+    
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+    const phoneNumber = '917892783668';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success notification
+    showNotification(`Redirecting to WhatsApp to confirm your ${serviceName} booking!`, 'success');
 }
 
 // Enhanced App Initialization
