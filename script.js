@@ -1235,9 +1235,62 @@ Thank you for choosing GlowOnCall! ✨`;
     }, 2000);
 }
 
-// Make showTab globally accessible
+// Mobile Menu Functions
+function toggleMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    
+    hamburger.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    
+    // Prevent body scrolling when menu is open
+    if (navOverlay.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navOverlay = document.getElementById('navOverlay');
+    
+    hamburger.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function toggleMobileDropdown(element) {
+    const dropdownContent = element.nextElementSibling;
+    element.classList.toggle('active');
+    dropdownContent.classList.toggle('active');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navOverlay = document.getElementById('navOverlay');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (navOverlay && navOverlay.classList.contains('active')) {
+        if (!navOverlay.contains(event.target) && !hamburger.contains(event.target)) {
+            closeMobileMenu();
+        }
+    }
+});
+
+// Close mobile menu on window resize to larger screen
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 1024) {
+        closeMobileMenu();
+    }
+});
+
+// Make functions globally accessible
 window.showTab = showTab;
 window.confirmPaymentAndBooking = confirmPaymentAndBooking;
+window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
+window.toggleMobileDropdown = toggleMobileDropdown;
 
 // Initialize app when DOM is loaded
 if (document.readyState === 'loading') {

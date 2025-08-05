@@ -40,8 +40,40 @@
                 <a href="#contact" class="nav-link">Contact</a>
                 <a href="#login" class="nav-link">Login</a>
             </nav>
+            
+            <!-- Hamburger Menu for Mobile/Tablet -->
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+            <li>
+                <a href="#" class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">Services</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#service-hair" onclick="closeMobileMenu()">Hair Services</a>
+                    <a href="#service-facial" onclick="closeMobileMenu()">Facial & Skin</a>
+                    <a href="#service-nails" onclick="closeMobileMenu()">Nail Care</a>
+                    <a href="#service-waxing" onclick="closeMobileMenu()">Waxing & Threading</a>
+                    <a href="#service-massage" onclick="closeMobileMenu()">Massage</a>
+                    <a href="#service-bridal" onclick="closeMobileMenu()">Bridal Makeup</a>
+                </div>
+            </li>
+            <li><a href="#booking" onclick="closeMobileMenu()">Book Now</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#reviews" onclick="closeMobileMenu()">Reviews</a></li>
+            <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
+            <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="#login" onclick="closeMobileMenu()">Login</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
