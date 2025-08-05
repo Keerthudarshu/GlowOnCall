@@ -968,7 +968,10 @@ function initializeApp() {
     addNotificationStyles();
     
     // Set home as active by default
-    document.querySelector('.nav-link[href="#home"]')?.classList.add('active');
+    const homeLink = document.querySelector('.nav-link[href="#home"]');
+    if (homeLink) {
+        homeLink.classList.add('active');
+    }
 }
 
 // Enhanced location picker with map selection
@@ -1109,17 +1112,15 @@ function openLocationPicker(button) {
 }
 
 function showLocationInstructions() {
-    const instructions = `
-📍 Location Selection Instructions:
+    const instructions = `📍 Location Selection Instructions:
 
 1. Find your exact location on the map
-2. Right-click on the precise spot
+2. Right-click on the precise spot  
 3. Click "What's here?" or see coordinates
 4. Copy the full Google Maps URL from address bar
 5. Paste the URL in the location field below
 
-This ensures 99% accurate location for our beautician!
-    `;
+This ensures 99% accurate location for our beautician!`;
     
     showNotification(instructions, 'info', 8000);
 }
