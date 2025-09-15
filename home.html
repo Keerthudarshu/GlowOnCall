@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowOnCall - Beauty at Your Doorstep</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.svg" alt="GlowOnCall Logo" class="logo">
+                <div class="logo-text">
+                    <h1>GlowOnCall</h1>
+                    <p>Beauty at Your Doorstep</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#services" class="nav-link dropdown-toggle">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="#service-hair" class="dropdown-link">Hair Services</a>
+                        <a href="#service-facial" class="dropdown-link">Facial & Skin</a>
+                        <a href="#service-nails" class="dropdown-link">Nail Care</a>
+                        <a href="#service-waxing" class="dropdown-link">Waxing & Threading</a>
+                        <a href="#service-massage" class="dropdown-link">Massage</a>
+                        <a href="#service-bridal" class="dropdown-link">Bridal Makeup</a>
+                    </div>
+                </div>
+                <a href="#booking" class="nav-link">Book Now</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#login" class="nav-link">Login</a>
+            </nav>
+            
+            <!-- Hamburger Menu for Mobile/Tablet -->
+            <button class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+            <li>
+                <a href="#" class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)">Services</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#service-hair" onclick="closeMobileMenu()">Hair Services</a>
+                    <a href="#service-facial" onclick="closeMobileMenu()">Facial & Skin</a>
+                    <a href="#service-nails" onclick="closeMobileMenu()">Nail Care</a>
+                    <a href="#service-waxing" onclick="closeMobileMenu()">Waxing & Threading</a>
+                    <a href="#service-massage" onclick="closeMobileMenu()">Massage</a>
+                    <a href="#service-bridal" onclick="closeMobileMenu()">Bridal Makeup</a>
+                </div>
+            </li>
+            <li><a href="#booking" onclick="closeMobileMenu()">Book Now</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#reviews" onclick="closeMobileMenu()">Reviews</a></li>
+            <li><a href="#products" onclick="closeMobileMenu()">Products</a></li>
+            <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            <li><a href="#login" onclick="closeMobileMenu()">Login</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Professional Beauty Services at Home</h2>
+                <p>Experience luxury salon treatments in the comfort of your own home. Our certified professionals bring the spa to you.</p>
+                <a href="#booking" class="cta-button">Book Your Service</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            
+            <!-- Facials Section -->
+            <div class="service-category">
+                <h3 class="category-title">✨ Premium Facials</h3>
+                <div class="services-grid">
+                    <div class="service-card" data-service="HydraFacial" data-price="1799" data-original="2500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="HydraFacial">
+                            <div class="service-overlay"><i class="fas fa-spa"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>HydraFacial</h3>
+                            <p>Deep cleansing, exfoliation, and hydration for glowing skin</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,799</span>
+                                <span class="original-price">₹2,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (890 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Collagen Renewal Facial" data-price="2999" data-original="3500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Collagen Facial">
+                            <div class="service-overlay"><i class="fas fa-leaf"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Collagen Renewal Facial</h3>
+                            <p>Anti-aging treatment to boost collagen and reduce fine lines</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,999</span>
+                                <span class="original-price">₹3,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (654 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Vitamin C Glow Facial" data-price="2399" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Vitamin C Facial">
+                            <div class="service-overlay"><i class="fas fa-sun"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Vitamin C Glow Facial</h3>
+                            <p>Brightening treatment for radiant, glowing complexion</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,399</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (723 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Korean Glass Skin Facial" data-price="2499" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Korean Glass Skin">
+                            <div class="service-overlay"><i class="fas fa-gem"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Korean Glass Skin Facial</h3>
+                            <p>Achieve that perfect Korean glass skin glow and smoothness</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,499</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (1.2k reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Charcoal Detox Facial" data-price="2599" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Charcoal Detox">
+                            <div class="service-overlay"><i class="fas fa-fire"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Charcoal Detox Facial</h3>
+                            <p>Deep pore cleansing to remove impurities and toxins</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,599</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (567 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Golden Glow Facial" data-price="2699" data-original="3000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Golden Glow">
+                            <div class="service-overlay"><i class="fas fa-crown"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Golden Glow Facial</h3>
+                            <p>Luxurious gold-infused treatment for ultimate radiance</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,699</span>
+                                <span class="original-price">₹3,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (434 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add-ons Section -->
+            <div class="service-category">
+                <h3 class="category-title">💎 Add-on Services</h3>
+                <div class="services-grid">
+                    <div class="service-card addon-service" data-service="Dermaplaning" data-price="799" data-original="1300">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dermaplaning">
+                            <div class="service-overlay"><i class="fas fa-magic"></i></div>
+                            <div class="addon-badge">Add-on</div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Dermaplaning</h3>
+                            <p>Gentle exfoliation for smoother, brighter skin</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹799</span>
+                                <span class="original-price">₹1,300</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lash Extensions Section -->
+            <div class="service-category">
+                <h3 class="category-title">👁️ Lash Extensions</h3>
+                <div class="services-grid">
+                    <div class="service-card" data-service="Classic Lash Extension" data-price="1799" data-original="2500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Classic Lashes">
+                            <div class="service-overlay"><i class="fas fa-eye"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Classic Lash Extension</h3>
+                            <p>Natural-looking individual lash extensions for everyday elegance</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,799</span>
+                                <span class="original-price">₹2,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (1.1k reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Hybrid Lash Extension" data-price="2999" data-original="3500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hybrid Lashes">
+                            <div class="service-overlay"><i class="fas fa-star"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Hybrid Lash Extension</h3>
+                            <p>Perfect blend of classic and volume for dramatic effect</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹2,999</span>
+                                <span class="original-price">₹3,500</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.9 (789 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="Lash Lift" data-price="1500" data-original="2000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lash Lift">
+                            <div class="service-overlay"><i class="fas fa-arrow-up"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Lash Lift</h3>
+                            <p>Natural curl enhancement for your existing lashes</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,500</span>
+                                <span class="original-price">₹2,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★☆</span>
+                                <span class="rating-text">4.7 (456 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eyebrow Services -->
+            <div class="service-category">
+                <h3 class="category-title">🌟 Eyebrow Services</h3>
+                <div class="services-grid">
+                    <div class="service-card" data-service="Eyebrow Lamination" data-price="1499" data-original="2000">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Brow Lamination">
+                            <div class="service-overlay"><i class="fas fa-brush"></i></div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Eyebrow Lamination</h3>
+                            <p>Perfectly groomed, fuller-looking brows that last weeks</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹1,499</span>
+                                <span class="original-price">₹2,000</span>
+                            </div>
+                            <div class="service-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-text">4.8 (567 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card addon-service" data-service="Brow Tint" data-price="500">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Brow Tint">
+                            <div class="service-overlay"><i class="fas fa-palette"></i></div>
+                            <div class="addon-badge">Add-on</div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Brow Tint</h3>
+                            <p>Natural color enhancement for defined eyebrows</p>
+                            <div class="service-pricing">
+                                <span class="current-price">₹500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combo Packages -->
+            <div class="service-category combo-section">
+                <h3 class="category-title">🎁 Special Combo Packages</h3>
+                <div class="combo-grid">
+                    <div class="combo-card" data-service="HydraFacial Combo" data-price="3000">
+                        <div class="combo-content">
+                            <h3>HydraFacial Complete</h3>
+                            <div class="combo-includes">
+                                <p>✨ HydraFacial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,000</span>
+                                <span class="combo-savings">Save ₹1,398!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card" data-service="Vitamin C Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Vitamin C Glow Package</h3>
+                            <div class="combo-includes">
+                                <p>☀️ Vitamin C Glow Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹897!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card" data-service="Korean Glass Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Korean Glass Skin Package</h3>
+                            <div class="combo-includes">
+                                <p>💎 Korean Glass Skin Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹797!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card" data-service="Charcoal Detox Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Charcoal Detox Package</h3>
+                            <div class="combo-includes">
+                                <p>🔥 Charcoal Detox Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹697!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card" data-service="Golden Glow Combo" data-price="3500">
+                        <div class="combo-content">
+                            <h3>Golden Glow Package</h3>
+                            <div class="combo-includes">
+                                <p>👑 Golden Glow Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹3,500</span>
+                                <span class="combo-savings">Save ₹597!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="combo-card premium" data-service="Collagen Renewal Combo" data-price="4000">
+                        <div class="combo-content">
+                            <h3>Premium Collagen Package</h3>
+                            <div class="combo-includes">
+                                <p>🌟 Collagen Renewal Facial</p>
+                                <p>👁️ Classic Lash Extension</p>
+                                <p>💎 Dermaplaning</p>
+                            </div>
+                            <div class="combo-pricing">
+                                <span class="combo-price">₹4,000</span>
+                                <span class="combo-savings">Save ₹1,097!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Booking Section -->
+    <section id="booking" class="main-booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Service</h2>
+            <div class="booking-container">
+                <div class="booking-form-section">
+                    <form id="mainBookingForm" class="main-booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Your Name *</label>
+                                <input type="text" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="service" id="serviceSelector" required>
+                                <option value="">Select Your Service</option>
+                                <optgroup label="Premium Facials">
+                                    <option value="HydraFacial" data-price="1799">HydraFacial - ₹1,799</option>
+                                    <option value="Collagen Renewal Facial" data-price="2999">Collagen Renewal Facial - ₹2,999</option>
+                                    <option value="Vitamin C Glow Facial" data-price="2399">Vitamin C Glow Facial - ₹2,399</option>
+                                    <option value="Korean Glass Skin Facial" data-price="2499">Korean Glass Skin Facial - ₹2,499</option>
+                                    <option value="Charcoal Detox Facial" data-price="2599">Charcoal Detox Facial - ₹2,599</option>
+                                    <option value="Golden Glow Facial" data-price="2699">Golden Glow Facial - ₹2,699</option>
+                                </optgroup>
+                                <optgroup label="Lash Extensions">
+                                    <option value="Classic Lash Extension" data-price="1799">Classic Lash Extension - ₹1,799</option>
+                                    <option value="Hybrid Lash Extension" data-price="2999">Hybrid Lash Extension - ₹2,999</option>
+                                    <option value="Lash Lift" data-price="1500">Lash Lift - ₹1,500</option>
+                                </optgroup>
+                                <optgroup label="Eyebrow Services">
+                                    <option value="Eyebrow Lamination" data-price="1499">Eyebrow Lamination - ₹1,499</option>
+                                    <option value="Brow Tint" data-price="500">Brow Tint - ₹500</option>
+                                </optgroup>
+                                <optgroup label="Add-ons">
+                                    <option value="Dermaplaning" data-price="799">Dermaplaning - ₹799</option>
+                                </optgroup>
+                                <optgroup label="Combo Packages">
+                                    <option value="HydraFacial Combo" data-price="3000">HydraFacial Complete - ₹3,000</option>
+                                    <option value="Vitamin C Combo" data-price="3500">Vitamin C Glow Package - ₹3,500</option>
+                                    <option value="Korean Glass Combo" data-price="3500">Korean Glass Skin Package - ₹3,500</option>
+                                    <option value="Charcoal Detox Combo" data-price="3500">Charcoal Detox Package - ₹3,500</option>
+                                    <option value="Golden Glow Combo" data-price="3500">Golden Glow Package - ₹3,500</option>
+                                    <option value="Collagen Renewal Combo" data-price="4000">Premium Collagen Package - ₹4,000</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Preferred Date *</label>
+                                <input type="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Time *</label>
+                                <select name="time" required>
+                                    <option value="">Select Time</option>
+                                    <option value="9:00 AM">9:00 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="1:00 PM">1:00 PM</option>
+                                    <option value="2:00 PM">2:00 PM</option>
+                                    <option value="3:00 PM">3:00 PM</option>
+                                    <option value="4:00 PM">4:00 PM</option>
+                                    <option value="5:00 PM">5:00 PM</option>
+                                    <option value="6:00 PM">6:00 PM</option>
+                                    <option value="7:00 PM">7:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Complete Address *</label>
+                            <textarea name="address" rows="3" placeholder="Please provide your complete address with landmark details..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Precise Location (Recommended for 99% Accuracy)</label>
+                            <div class="location-inputs">
+                                <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                                <button type="button" class="location-btn" onclick="getCurrentLocation(this)">
+                                    🗺️ Open Map & Select
+                                </button>
+                            </div>
+                            <small class="help-text">Click button → Select exact location on map → Copy URL → Paste above for precise navigation</small>
+                        </div>
+
+                        <div class="pricing-summary" id="pricingSummary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span id="serviceTotal">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span id="bookingAmount">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span id="remainingAmount">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="book-now-btn">
+                            Book Now & Pay 40% Advance
+                        </button>
+                    </form>
+                </div>
+
+                <div class="payment-section">
+                    <div class="payment-info">
+                        <h3>Secure Payment</h3>
+                        <p>Pay only 40% to confirm your booking</p>
+                        
+                        <div class="payment-qr" id="paymentQR" style="display: none;">
+                            <div class="qr-container">
+                                <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                <div class="payment-details">
+                                    <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                    <p><strong>Account:</strong> Keerthu Darshu</p>
+                                </div>
+                            </div>
+                            <div class="payment-instructions">
+                                <ol>
+                                    <li>Scan the QR code with any UPI app</li>
+                                    <li>Pay the booking amount shown above</li>
+                                    <li>Take a screenshot of payment confirmation</li>
+                                    <li>Click "Confirm Booking" to proceed</li>
+                                </ol>
+                            </div>
+                            <button type="button" class="confirm-payment-btn" onclick="confirmPaymentAndBooking()">
+                                ✅ Payment Done - Confirm Booking
+                            </button>
+                        </div>
+
+                        <div class="payment-features">
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>100% Secure Payment</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Instant Confirmation</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-phone"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Individual Service Pages -->
+    
+    <!-- Hair Services Page -->
+    <section id="service-hair" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Hair Services">
+                <div class="service-info">
+                    <h2>Hair Services</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.8 (2.5k reviews)</span>
+                    </div>
+                    <p>Professional hair cutting, styling, and hair spa services by expert stylists at your home.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Haircut & Styling</h4>
+                        <p>Professional haircut with styling for all hair types</p>
+                        <span class="price">₹500 - ₹800</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Hair Spa Treatment</h4>
+                        <p>Deep conditioning treatment for healthy, shiny hair</p>
+                        <span class="price">₹1200 - ₹1800</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Hair Coloring</h4>
+                        <p>Professional hair coloring with premium products</p>
+                        <span class="price">₹2000 - ₹3500</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Hair Service</h3>
+                    <form class="service-booking-form" data-service="Hair Services">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Precise Location (Recommended for 99% Accuracy)</label>
+                            <div class="location-inputs">
+                                <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                                <button type="button" class="location-btn" onclick="getCurrentLocation(this)">
+                                    🗺️ Open Map & Select
+                                </button>
+                            </div>
+                            <small class="help-text">Click button → Select exact location on map → Copy URL → Paste above for precise navigation</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" class="service-price-selector" required>
+                                <option value="">Select Service</option>
+                                <option value="Haircut & Styling" data-price="650">Haircut & Styling - ₹650</option>
+                                <option value="Hair Spa Treatment" data-price="1500">Hair Spa Treatment - ₹1,500</option>
+                                <option value="Hair Coloring" data-price="2750">Hair Coloring - ₹2,750</option>
+                            </select>
+                        </div>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facial & Skin Services Page -->
+    <section id="service-facial" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Facial Services">
+                <div class="service-info">
+                    <h2>Facial & Skin Treatments</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.9 (1.8k reviews)</span>
+                    </div>
+                    <p>Rejuvenating facials, clean-ups, and skin treatments for glowing, healthy skin.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Classic Facial</h4>
+                        <p>Deep cleansing facial for all skin types</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Gold Facial</h4>
+                        <p>Premium anti-aging facial with gold particles</p>
+                        <span class="price">₹1500 - ₹2200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Clean-up & Bleach</h4>
+                        <p>Quick facial cleanup with bleaching</p>
+                        <span class="price">₹600 - ₹900</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Facial Service</h3>
+                    <form class="service-booking-form" data-service="Facial & Skin Treatments">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Precise Location (Recommended for 99% Accuracy)</label>
+                            <div class="location-inputs">
+                                <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                                <button type="button" class="location-btn" onclick="getCurrentLocation(this)">
+                                    🗺️ Open Map & Select
+                                </button>
+                            </div>
+                            <small class="help-text">Click button → Select exact location on map → Copy URL → Paste above for precise navigation</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" class="service-price-selector" required>
+                                <option value="">Select Service</option>
+                                <option value="Classic Facial" data-price="1000">Classic Facial - ₹1,000</option>
+                                <option value="Gold Facial" data-price="1850">Gold Facial - ₹1,850</option>
+                                <option value="Clean-up & Bleach" data-price="750">Clean-up & Bleach - ₹750</option>
+                            </select>
+                        </div>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nail Care Services Page -->
+    <section id="service-nails" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Nail Care Services">
+                <div class="service-info">
+                    <h2>Nail Care Services</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.7 (1.2k reviews)</span>
+                    </div>
+                    <p>Professional manicure and pedicure services for beautiful, healthy nails.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Classic Manicure</h4>
+                        <p>Basic nail care with shaping and polish</p>
+                        <span class="price">₹400 - ₹600</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Classic Pedicure</h4>
+                        <p>Foot care with exfoliation and nail polish</p>
+                        <span class="price">₹500 - ₹700</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Gel Manicure</h4>
+                        <p>Long-lasting gel polish manicure</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Nail Care Service</h3>
+                    <form class="service-booking-form" data-service="Nail Care">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Precise Location (Recommended for 99% Accuracy)</label>
+                            <div class="location-inputs">
+                                <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                                <button type="button" class="location-btn" onclick="getCurrentLocation(this)">
+                                    🗺️ Open Map & Select
+                                </button>
+                            </div>
+                            <small class="help-text">Click button → Select exact location on map → Copy URL → Paste above for precise navigation</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" class="service-price-selector" required>
+                                <option value="">Select Service</option>
+                                <option value="Classic Manicure" data-price="500">Classic Manicure - ₹500</option>
+                                <option value="Classic Pedicure" data-price="600">Classic Pedicure - ₹600</option>
+                                <option value="Gel Manicure" data-price="1000">Gel Manicure - ₹1,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waxing & Threading Services Page -->
+    <section id="service-waxing" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Waxing Services">
+                <div class="service-info">
+                    <h2>Waxing & Threading</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.6 (900 reviews)</span>
+                    </div>
+                    <p>Professional waxing and threading services for smooth, hair-free skin.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Full Body Wax</h4>
+                        <p>Complete body waxing service</p>
+                        <span class="price">₹2000 - ₹2800</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Arms & Legs Wax</h4>
+                        <p>Waxing for arms and legs</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Eyebrow Threading</h4>
+                        <p>Precise eyebrow shaping and threading</p>
+                        <span class="price">₹150 - ₹250</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Waxing Service</h3>
+                    <form class="service-booking-form" data-service="Waxing & Threading">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Precise Location (Recommended for 99% Accuracy)</label>
+                            <div class="location-inputs">
+                                <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                                <button type="button" class="location-btn" onclick="getCurrentLocation(this)">
+                                    🗺️ Open Map & Select
+                                </button>
+                            </div>
+                            <small class="help-text">Click button → Select exact location on map → Copy URL → Paste above for precise navigation</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" class="service-price-selector" required>
+                                <option value="">Select Service</option>
+                                <option value="Full Body Wax" data-price="2400">Full Body Wax - ₹2,400</option>
+                                <option value="Arms & Legs Wax" data-price="1000">Arms & Legs Wax - ₹1,000</option>
+                                <option value="Eyebrow Threading" data-price="200">Eyebrow Threading - ₹200</option>
+                            </select>
+                        </div>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Massage Services Page -->
+    <section id="service-massage" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Massage Services">
+                <div class="service-info">
+                    <h2>Massage Therapy</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.8 (750 reviews)</span>
+                    </div>
+                    <p>Relaxing and therapeutic massage treatments for stress relief and wellness.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Full Body Massage</h4>
+                        <p>Complete body relaxation massage</p>
+                        <span class="price">₹1500 - ₹2200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Head & Shoulder Massage</h4>
+                        <p>Targeted massage for stress relief</p>
+                        <span class="price">₹800 - ₹1200</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Foot Massage</h4>
+                        <p>Relaxing foot and leg massage</p>
+                        <span class="price">₹600 - ₹900</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Massage Service</h3>
+                    <form class="service-booking-form" data-service="Massage Therapy">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Precise Location (Recommended for 99% Accuracy)</label>
+                            <div class="location-inputs">
+                                <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                                <button type="button" class="location-btn" onclick="getCurrentLocation(this)">
+                                    🗺️ Open Map & Select
+                                </button>
+                            </div>
+                            <small class="help-text">Click button → Select exact location on map → Copy URL → Paste above for precise navigation</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" class="service-price-selector" required>
+                                <option value="">Select Service</option>
+                                <option value="Full Body Massage" data-price="1850">Full Body Massage - ₹1,850</option>
+                                <option value="Head & Shoulder Massage" data-price="1000">Head & Shoulder Massage - ₹1,000</option>
+                                <option value="Foot Massage" data-price="750">Foot Massage - ₹750</option>
+                            </select>
+                        </div>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridal Makeup Services Page -->
+    <section id="service-bridal" class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <img src="https://images.unsplash.com/photo-1457972729786-0411a3b2b626?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Bridal Makeup Services">
+                <div class="service-info">
+                    <h2>Bridal Makeup & Makeover</h2>
+                    <div class="service-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.9 (650 reviews)</span>
+                    </div>
+                    <p>Complete bridal makeover packages for your special day with professional makeup artists.</p>
+                </div>
+            </div>
+            
+            <div class="service-details-grid">
+                <div class="service-options">
+                    <h3>Available Services</h3>
+                    <div class="option-card">
+                        <h4>Bridal Makeup</h4>
+                        <p>Complete bridal makeup for wedding day</p>
+                        <span class="price">₹5000 - ₹8000</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Pre-Wedding Makeup</h4>
+                        <p>Makeup for pre-wedding photoshoots</p>
+                        <span class="price">₹3000 - ₹5000</span>
+                    </div>
+                    <div class="option-card">
+                        <h4>Party Makeup</h4>
+                        <p>Professional makeup for special occasions</p>
+                        <span class="price">₹2000 - ₹3500</span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <h3>Book Bridal Service</h3>
+                    <form class="service-booking-form" data-service="Bridal Makeup">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea name="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Precise Location (Recommended for 99% Accuracy)</label>
+                            <div class="location-inputs">
+                                <input type="url" name="location" placeholder="Paste Google Maps link for precise navigation">
+                                <button type="button" class="location-btn" onclick="getCurrentLocation(this)">
+                                    🗺️ Open Map & Select
+                                </button>
+                            </div>
+                            <small class="help-text">Click button → Select exact location on map → Copy URL → Paste above for precise navigation</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select name="time" required>
+                                <option value="">Select Time</option>
+                                <option value="6:00 AM">6:00 AM</option>
+                                <option value="7:00 AM">7:00 AM</option>
+                                <option value="8:00 AM">8:00 AM</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type *</label>
+                            <select name="serviceType" class="service-price-selector" required>
+                                <option value="">Select Service</option>
+                                <option value="Bridal Makeup" data-price="6500">Bridal Makeup - ₹6,500</option>
+                                <option value="Pre-Wedding Makeup" data-price="4000">Pre-Wedding Makeup - ₹4,000</option>
+                                <option value="Party Makeup" data-price="2750">Party Makeup - ₹2,750</option>
+                            </select>
+                        </div>
+                        
+                        <div class="service-pricing-summary" style="display: none;">
+                            <div class="price-breakdown">
+                                <div class="service-price">
+                                    <span>Service Total:</span>
+                                    <span class="service-total-amount">₹0</span>
+                                </div>
+                                <div class="booking-amount">
+                                    <span>Booking Amount (40%):</span>
+                                    <span class="booking-amount-value">₹0</span>
+                                </div>
+                                <div class="remaining-amount">
+                                    <span>Pay at Service:</span>
+                                    <span class="remaining-amount-value">₹0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="book-btn">Book & Pay 40% Advance</button>
+                        
+                        <div class="service-payment-qr" style="display: none;">
+                            <div class="payment-section-inline">
+                                <h4>Complete Your Payment</h4>
+                                <div class="qr-container">
+                                    <img src="attached_assets/WhatsApp Image 2025-08-05 at 23.35.19_98228526_1754417991845.jpg" alt="Payment QR Code" class="qr-code">
+                                    <div class="payment-details">
+                                        <p><strong>UPI ID:</strong> keerthudarshu06@oksbi</p>
+                                        <p><strong>Account:</strong> Keerthu Darshu</p>
+                                        <p><strong>Amount:</strong> <span class="payment-qr-amount">₹0</span></p>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions">
+                                    <ol>
+                                        <li>Scan QR code with any UPI app</li>
+                                        <li>Pay the exact booking amount shown</li>
+                                        <li>Take screenshot of payment confirmation</li>
+                                        <li>Click "Payment Done" to confirm booking</li>
+                                    </ol>
+                                </div>
+                                <button type="button" class="confirm-service-payment-btn">
+                                    ✅ Payment Done - Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Appointment</h2>
+            <div class="booking-container">
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <span class="error-message" id="fullNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Select Service *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Choose a service</option>
+                            <option value="Haircut & Styling">Haircut & Styling</option>
+                            <option value="Facial & Skin Treatments">Facial & Skin Treatments</option>
+                            <option value="Waxing & Threading">Waxing & Threading</option>
+                            <option value="Nail Care">Manicure & Pedicure</option>
+                            <option value="Massage Therapy">Massage Therapy</option>
+                            <option value="Bridal Makeup">Bridal Makeup & Makeover</option>
+                        </select>
+                        <span class="error-message" id="serviceError"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date *</label>
+                            <input type="date" id="date" name="date" required>
+                            <span class="error-message" id="dateError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Preferred Time *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Select time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                                <option value="7:00 PM">7:00 PM</option>
+                            </select>
+                            <span class="error-message" id="timeError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Complete Address *</label>
+                        <textarea id="address" name="address" rows="3" placeholder="Enter your complete address with landmarks" required></textarea>
+                        <span class="error-message" id="addressError"></span>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        <i class="fab fa-whatsapp"></i>
+                        Book via WhatsApp
+                    </button>
+                </form>
+
+                <div class="booking-info">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Service Hours</h4>
+                            <p>9:00 AM - 7:00 PM<br>All days of the week</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Safety First</h4>
+                            <p>All equipment sanitized<br>Certified professionals</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <i class="fas fa-home"></i>
+                        <div>
+                            <h4>Home Service</h4>
+                            <p>Professional service<br>at your convenience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About GlowOnCall</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>India's Leading Salon-at-Home Platform</h3>
+                    <p>GlowOnCall connects you with professional beauticians and stylists who deliver premium beauty services at your home. We operate across major cities including Bangalore, Mumbai, Pune, Hyderabad, and Delhi.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-shield-check"></i>
+                            <h4>Verified Professionals</h4>
+                            <p>All our stylists are certified and background-verified</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h4>Transparent Pricing</h4>
+                            <p>No hidden charges, upfront pricing for all services</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star"></i>
+                            <h4>Quality Guarantee</h4>
+                            <p>Money-back guarantee if not satisfied with service</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <h4>Flexible Timings</h4>
+                            <p>Book services at your convenient time</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>50,000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5000+</h3>
+                        <p>Verified Stylists</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5</h3>
+                        <p>Major Cities</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.8★</h3>
+                        <p>Average Rating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b332e234?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Priya Sharma">
+                            <div>
+                                <h4>Priya Sharma</h4>
+                                <p>Bangalore</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p>"Amazing facial service! The beautician was very professional and used high-quality products. My skin is glowing now. Will definitely book again."</p>
+                    <small>Facial & Skin Treatment • 2 days ago</small>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Neha Gupta">
+                            <div>
+                                <h4>Neha Gupta</h4>
+                                <p>Mumbai</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    <p>"Perfect bridal makeup for my wedding! The artist understood exactly what I wanted and made me look absolutely beautiful. Thank you GlowOnCall!"</p>
+                    <small>Bridal Makeup • 1 week ago</small>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Kavya Patel">
+                            <div>
+                                <h4>Kavya Patel</h4>
+                                <p>Pune</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                    </div>
+                    <p>"Great haircut service at home. The stylist was punctual and gave me exactly the cut I wanted. Very convenient and professional."</p>
+                    <small>Haircut & Styling • 3 days ago</small>
+                </div>
+            </div>
+            <div class="review-summary">
+                <h3>4.8/5 Average Rating</h3>
+                <p>Based on 15,000+ customer reviews</p>
+                <div class="rating-breakdown">
+                    <div class="rating-bar">
+                        <span>5★</span>
+                        <div class="bar"><div class="fill" style="width: 78%"></div></div>
+                        <span>78%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span>4★</span>
+                        <div class="bar"><div class="fill" style="width: 15%"></div></div>
+                        <span>15%</span>
+                    </div>
+                    <div class="rating-bar">
+                        <span>3★</span>
+                        <div class="bar"><div class="fill" style="width: 5%"></div></div>
+                        <span>5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Premium Beauty Products</h2>
+            <p class="section-subtitle">Shop high-quality beauty products used by our professionals</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Face Serum">
+                        <div class="product-badge">Best Seller</div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Vitamin C Face Serum</h3>
+                        <p>Brightening serum for radiant skin</p>
+                        <div class="product-price">
+                            <span class="original-price">₹1,200</span>
+                            <span class="discounted-price">₹899</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Hair Oil">
+                    </div>
+                    <div class="product-content">
+                        <h3>Argan Hair Oil</h3>
+                        <p>Nourishing oil for healthy hair</p>
+                        <div class="product-price">
+                            <span class="original-price">₹800</span>
+                            <span class="discounted-price">₹599</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Face Mask">
+                    </div>
+                    <div class="product-content">
+                        <h3>Hydrating Face Mask</h3>
+                        <p>Deep moisturizing treatment mask</p>
+                        <div class="product-price">
+                            <span class="original-price">₹500</span>
+                            <span class="discounted-price">₹399</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Nail Polish">
+                    </div>
+                    <div class="product-content">
+                        <h3>Premium Nail Polish Set</h3>
+                        <p>Long-lasting color collection</p>
+                        <div class="product-price">
+                            <span class="original-price">₹1,500</span>
+                            <span class="discounted-price">₹1,199</span>
+                        </div>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I book a service?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can book a service by selecting your preferred service, filling out the booking form, and confirming via WhatsApp. Our team will contact you to confirm the appointment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are your stylists verified?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our stylists are professionally trained, certified, and background-verified. They carry their own sanitized equipment and follow strict hygiene protocols.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your cancellation policy?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can cancel or reschedule your appointment up to 2 hours before the scheduled time without any charges. Last-minute cancellations may incur a small fee.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide services in all areas?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We currently serve major areas in Bangalore, Mumbai, Pune, Hyderabad, and Delhi. Enter your address during booking to check if we serve your location.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What if I'm not satisfied with the service?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 100% satisfaction guarantee. If you're not happy with our service, we'll either send another stylist or provide a full refund.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Refer & Earn Section -->
+    <section id="refer" class="refer">
+        <div class="container">
+            <div class="refer-content">
+                <div class="refer-text">
+                    <h2>Refer & Earn</h2>
+                    <h3>Earn ₹200 for every successful referral!</h3>
+                    <p>Share GlowOnCall with your friends and family. When they book their first service, you both get ₹200 credit in your wallet.</p>
+                    
+                    <div class="refer-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <p>Share your referral code</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <p>Friend books first service</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <p>Both get ₹200 credit</p>
+                        </div>
+                    </div>
+                    
+                    <div class="referral-code">
+                        <p>Your Referral Code: <strong>GLOW2025</strong></p>
+                        <button class="share-btn">Share Code</button>
+                    </div>
+                </div>
+                <div class="refer-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Refer and Earn">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 80000 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>support@glowoncall.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Beauty Street, Koramangala<br>Bangalore, Karnataka 560095</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sun: 9:00 AM - 9:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Drop Us a Query</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Select Query Type</option>
+                                <option value="service">Service Related</option>
+                                <option value="booking">Booking Issue</option>
+                                <option value="payment">Payment Problem</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="showTab('login')">Login</button>
+                <button class="tab-btn" onclick="showTab('register')">Register</button>
+            </div>
+            
+            <div id="login" class="tab-content active">
+                <h3>Login to Your Account</h3>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="tel" placeholder="Enter Phone Number" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Send OTP</button>
+                </form>
+                <p>New user? <a href="#" onclick="showTab('register')">Create an account</a></p>
+            </div>
+            
+            <div id="register" class="tab-content">
+                <h3>Create New Account</h3>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Register</button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="showTab('login')">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.svg" alt="GlowOnCall Logo">
+                    <p>Beauty at Your Doorstep</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +91 XXXXXXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> info@glowoncall.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GlowOnCall. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
